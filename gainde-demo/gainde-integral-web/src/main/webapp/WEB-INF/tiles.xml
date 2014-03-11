@@ -1,0 +1,2141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+  
+	<definition name="struts2tiles.mainLayout" template="/frame/acceuil.jsp">	
+		<put-attribute name="begin" value="/frame/begin.jsp" />
+		<put-attribute name="title" value="/frame/title.jsp" />
+		<put-attribute name="top" value="/frame/top.jsp" />
+		<put-attribute name="left" value="/frame/left.jsp" />
+		<put-attribute name="content" value="/frame/groupes.jsp" />
+	</definition> 
+
+	<definition name="baseLayout" template="/pages/frame/index.jsp">
+		<put-attribute name="begin" value="/pages/frame/begin.jsp" />
+		<put-attribute name="title" value="/pages/frame/title.jsp" />
+		<put-attribute name="top" value="/pages/frame/top.jsp" />
+		<put-attribute name="content" value="" />		
+	</definition>
+	
+	<definition name="struts2tiles.messageLayout" template="/message/index.jsp">
+	   <put-attribute name="begin" value="/frame/begin.jsp" />
+	   <put-attribute name="title" value="/message/header.jsp" />
+	   <put-attribute name="content" value="/message/messageConfirm.jsp" />		
+	</definition>
+
+    <definition name="struts2tiles.rcCompagnieassisteeSaisie" extends="baseLayout">
+		<put-attribute name="include" value="/pages/rc/compagnieassistee/rcInclude/rcCompagnieassisteeSaisieInclude.jsp" />
+		<put-attribute name="content" value="/pages/rc/compagnieAssistee/rcCompagnieassisteeSaisie.jsp" />
+	</definition>	
+		
+	<definition name="struts2tiles.saisieRcCompbureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/compbureau/rcCompbureauSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercherManifEnreg" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifManifesteRecherche.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.apurementManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifApurementManifeste.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.manifesteDemandeMiseDepot" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeMiseEnDepotManifesteConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.editArticleDepot" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeMiseEnDepotArticleSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declPiecesAJoindre" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declPiecesAJoindre.jsp" />
+	</definition>
+		
+	<definition name="struts2tiles.consultationArticleDemDepot" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeMiseEnDepotArticleConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2.manfDemRecondConsult" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRecondManifesteConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2.manifRecondArticleConsultation" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRecondArticleConsultation.jsp" />
+	</definition>	
+	
+	<definition name="struts2.saisieDemandeRecond" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRecondArticleSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.manifDemandeRecondArticle" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRecondArticle.jsp" />
+	</definition>
+	
+	<definition name="struts2.manifDemandeMiseEnDepotManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeMiseEnDepotManifeste.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.resultatsControle" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/sommiers/sommiersResultatsControleSommier.jsp" />
+	</definition>
+		
+	<definition name="struts2tiles.resultatsControle1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/sommiers/sommiersResultatsControleSommier_1.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheSommiers" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/sommiers/sommiersRecherche.jsp" />
+	</definition>	
+
+	<definition name="struts2tiles.rechercheRcCompbureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/compbureau/rcCompbureauRecherche.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationSommier" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/sommiers/sommierConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.modificationRcCompbureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/compbureau/rcCompbureauModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationRcCompbureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/compbureau/rcCompbureauConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieArticleManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifArticleSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.editArticleManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifEditArticle.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.modifArticleManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifArticleModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationArticleManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifArticleConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationArticleEnregManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifArticleConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultEtatApurArticleManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifesteConsultationEtatApurementArticleManifeste.jsp" />
+	</definition>
+		
+	<definition name="struts2tiles.manifRechercheManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifManifesteRecherche.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.manifCritereRechercheManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifRechercheManifeste.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.manifListeManifestes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifListeManifestes.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifManifesteConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationManifesteEnreg" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifLieuxEmbarqConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationListArticleLieuxEmbarq" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifManifesteConsultation.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.saisieManifeste" extends="baseLayout">  
+	  <put-attribute name="content" value="/pages/manifeste/manifManifesteSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieConteneur" extends="baseLayout">
+	  <put-attribute name="content" value="/pages/manifeste/manifConteneurSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.manifManifesteEdit" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifManifesteEdit.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.manifManifesteModification" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifManifesteModification.jsp" />		
+	</definition>		
+	
+	<definition name="struts2tiles.editArticleByLieuEmbarq" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifLieuxEmbarq.jsp"/>
+	</definition>
+	
+	<definition name="struts2tiles.modifManifeste" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifManifesteModification.jsp" />		
+	</definition>	
+	
+	<definition name="struts2tiles.consultArticleByLieuEmarq" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifLieuxEmbarqConsultation.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.suiviDeclCptNP" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/visite/visiteSuiviDeclCptNonPayees.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.rechercheDemandeSurDecl" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/douaneRechercheDemande.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.douaneConsultationMessageDemandeDecl" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/douaneConsultationMessageDemandeDecl.jsp" />		
+	</definition>	
+	
+	<definition name="struts2tiles.rechMiseDepotDeclaration" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/douaneRechercheDemande.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.consulSegGenDeclDetail" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/douaneConsultationDeclarationDetail.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouProdExclu" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionProduit/exclusionproduitRecherche.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouPpmExclu" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionPpm/exclusionppmRecherche.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouPaysExclu" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionPays/exclusionpaysRecherche.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouProdExcluModif" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionProduit/exclusionproduitModification.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouPpmExcluModif" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionPpm/exclusionppmModification.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouPaysExcluModif" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionPays/exclusionpaysModification.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouProdExcluConsult" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionProduit/exclusionproduitConsultation.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouPpmExcluConsult" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionPpm/exclusionppmConsultation.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouPaysExcluConsult" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionPays/exclusionpaysConsultation.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouCritGlobaux" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/criteresglobaux/criteresglobauxRecherche.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouModifCritGlobaux" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/criteresglobaux/criteresglobauxModification.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouConsultCritGlobaux" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/criteresglobaux/criteresglobauxConsultation.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouSaisieCritGlobaux" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/criteresglobaux/criteresglobauxSaisie.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouSaisieProdExclu" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionProduit/exclusionproduitSaisie.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouSaisiePpmExclu" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionPpm/exclusionppmSaisie.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.DouSaisiePaysExclu" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/exclusion/exclusionPays/exclusionpaysSaisie.jsp" />		
+	</definition>	
+	
+	<definition name="struts2tiles.douSuiviSommiersRech" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/suivisommiersnonsoldes/suiviSommiersRecherche.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.douSuiviSommiersConsult" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/suivisommiersnonsoldes/suiviSommiersConsultation.jsp" />		
+	</definition>
+					
+	<definition name="struts2tiles.manifArticleDmdConsultation" extends="baseLayout">
+	    <put-attribute name="content" value="/pages/manifeste/manifDemandeRecondArticleConsultation.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.manifArticleDegroupage" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifArticleDegroupage.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.demandeRectifManifeste" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRectifManifeste.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.saisieDemandeRectifManifeste" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRectifSaisie.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.demandeRectifConsultation" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRectifConsultation.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.demandeRectifConteneur" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRectifConteneurSaisie.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.demandeDestructionManif" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeDestManifeste.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.demandeRegularisationManif" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRegulManifeste.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.demandeDestManifConsultation" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifesteIncludes/demandeDestructionConsultation.jsp" />		
+	</definition>	
+	
+	<definition name="struts2tiles.saisieDemandeRegularisation" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRegulSaisie.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.imputerSommier" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/douane/sommiers/sommiersImputerSommier.jsp" />		
+	</definition>	
+	
+	<definition name="struts2tiles.demandeRegularisationConsultation" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRegulConsultation.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.declDeclarationDetailArticleSaisie1_2" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleSaisie1_2.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.declDeclarationDetailArticleSaisie1_1" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleSaisie1_1.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.declarationDetailPdtFiniEdit" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailPdtFiniEdit.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.declarationApurementTitrePrecedentSaisie" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/declaration/declApurementTitrePrecedentSaisie.jsp" />		
+	</definition>		
+	
+	<definition name="struts2tiles.saisieDemandeDestManif" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeDestSaisie.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.consultRegistreDepot" extends="baseLayout">	   
+		<put-attribute name="content" value="/pages/manifeste/manifRegistreDepotArticleConsultation.jsp" />		
+	</definition>
+	
+	<definition name="struts2tiles.declRechercheDeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationRecherche.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declSaisieDeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declSaisieDeclaration1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailSaisie1.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declEditDeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailEdit.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.editAttachementConteneur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declEditAttachementConteneur.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.demandeModifSegGenRechForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDemandeModifSegGenRechForm.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.tresorEtatDossierReglement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorEtatDossierReglement.jsp" />
+	</definition>		
+	
+	<definition name="struts2tiles.demandeModifSegGenSaisieForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDemandeModifSegGenSaisieForm.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.declEditDeclaration1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailEdit1.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declConsultationDeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declLiquidationTotale" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declLiquidationTotale.jsp" />
+	</definition>
+	
+    <definition name="struts2tiles.declDeclarationDetailArticleSaisie_1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleSaisie_1.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declDeclarationDetailArticleSaisie_2" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleSaisie_2.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declDeclarationDetailArticleSaisie_3" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleSaisie_3.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.manifManifesteEnregistrement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifManifesteEnregistrement.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declConsultationDeclarationEnreg" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationEnregRecherche.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declConsultationSeggendec" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationConsultDetailEnreg.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declDeclarationArticleEnregRecherche" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationArticleEnregRecherche.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.piecesJointesArtEnreg" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/PiecesJointesArtEnreg.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.piecesJointesRepEnreg" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/PiecesJointesRepEnreg.jsp" />
+	</definition>
+	
+	
+	<definition name="struts2tiles.consulterconteneurattach" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declConteneursAttaches.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.declLiquidationTotaleArtEnreg" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declLiquidationTotaleArtEnreg.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declLiquidationTotaleRepEnreg" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declLiquidationTotaleRepEnreg.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.consultArticleDetailTitrePrec" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declApurementTitrePrecedentConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.articleEnregConsultation_1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleEnregConsultation_1.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.articleEnregConsultation_2" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleEnregConsultation_2.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declRechercheBrDeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationRechercheNotEnreg.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.decEnregistrerDeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/decEnregistrerDeclaration.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.seggenDeclRechercheBrTransbordement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/transbordement/transbContents/decTransbBrRecherche.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.seggenDecldeclModifierBrTransbordement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/transbordement/transbContents/decTransbBrEditForm.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.seggendeclCreationBrTransbordement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/transbordement/transbContents/decTransbBrCreation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.seggendeclValidateBrTransbordement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/transbordement/transbContents/decTransbBrValidate.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.editArticlesBrTransbordement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/transbordement/transbContents/decArticlesTransbEdit.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.seggendeclConsultationBrTransbordement" extends="baseLayout">
+			<put-attribute name="content" value="/pages/declaration/transbordement/transbContents/decTransbBrViewForm.jsp" />
+	</definition> 
+	
+	<definition name="struts2tiles.declCalculDevisPieces" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declCalculDevisPieces.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.decEnregistrerDeclaration1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/decEnregistrerDec.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.decDectransmisDouane" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/decDectransmisDouane.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declPiecesAJoindre" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declPiecesAJoindre.jsp" />
+	</definition>	
+	
+	<!-- controle saisie article declaration -->
+	
+	<definition name="struts2tiles.declDeclarationDetailArticleSaisie_1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleSaisie_1.jsp" />
+	</definition>
+	<definition name="struts2tiles.declSaisieArtDeclaration2" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleSaisie_2.jsp" />
+	</definition>	
+	<definition name="struts2tiles.declSaisieArtDeclaration1_1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleSaisie1_1.jsp" />
+	</definition>	
+	<definition name="struts2tiles.declSaisieArtDeclaration1_2" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleSaisie1_2.jsp" />
+	</definition>
+	<definition name="struts2tiles.declSaisieEnrArtDeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailEdit1.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.declConsultationSommier" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierConsultationRech.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declConsultationSommierDetail" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declCessionSommier" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierCessionRech.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declValidationCessionSommier" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierCessionValidate.jsp" />
+	</definition>
+		
+	<!-- ****************** -->
+	<definition name="struts2tiles.douaneRechEnlDecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/enlevements/enlRechercheDeclaration.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.douaneEnlConsultEnl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/enlevements/enlConsultationEnlevement.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.douaneEnlArtDecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/enlevements/enlArticleDeclaration.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.douaneSaisieEltIdEcor" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneSaisieElementIdentificationEcor.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.douaneResEcor" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneSaisieResultatEcor.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.douaneSaisieQteEcor" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneSaisieQuantiteEcoree.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.douaneSaisieModifContEcor" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneSaisieModificationConteneurConstate.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.VisiteTraitDeclCotesR" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteTraitDeclCotesRech.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.attributionBae" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteAttribuerBae.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.VisiteConformeDeclCotes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteVisiteConforme.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.VisiteNonConformeDeclCotes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteVisiteNonConforme.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ValiderVisiteNonConformeDeclCotes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteValiderVisiteNonConforme.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ArticleVisiteNonConformeDeclCotes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteArticleVisiteNonConforme.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.VisiteSaisieConvocation" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteConvocationSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.VisiteEditConvocation" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteConvocationEdit.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.VisiteContreVisite" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteContreVisite.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ConsulterLiquidationSupp" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteLiquidationSupp.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.VisiteDocOrbus" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteDocumentsOrbus.jsp" />
+	</definition>
+				
+	<definition name="struts2tiles.douaneRechDde" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneRechercheDemande.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.DouSoumisConsult" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/suiviSoumissions/suiviSoumissionsConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.DouSoumisRech" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/suiviSoumissions/suiviSoumissionsRecherche.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ConsulterValiderDdeRectif" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneConsultationDemandeDeRectification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.apurementComptable" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneConfirmationApurementComptable.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.apurementPhysique" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneConfirmationApurementPhysique.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consulterReconditionnementArticle" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneConsultationEtatReconditionnementArticleManifeste.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ciblageManifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/ciblage/ciblageManifeste.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.regularisationTvaRecherche" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/regularisationTva/regularisationTvaRecherche.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.regularisationTvaModification" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/regularisationTva/regularisationTvaModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declApurementTitrePrecedentSaisie" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declApurementTitrePrecedentSaisie.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.consulterChronoCredit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorChronoCredit.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ConsultationRecouvrementDclParPde" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorConsultationRecouvrementDclParPde.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ConsultationRecouvrementComptant" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorConsultationRecouvrementComptant.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ConsultationRecouvrementCredit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorConsultationRecouvrementDossierParCrd.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ConsultationQuittancesCrd" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorConsultationQuittances.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declRechercheDmRectification" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDetailRechercheForm.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declEditArticleDecRectif" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDetailArticlesForm.jsp" />
+	</definition>
+		
+	<definition name="struts2tiles.declRectifEditArt" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDetailRectifSaisieForm.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declRectifMessage" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declMessageForm.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declRectifMessage2" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declMessageForm2.jsp" />
+	</definition> 
+	
+	<definition name="struts2tiles.declDemandeModifSegArtRechForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDemandeModifSegArtRechForm.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.declDemandeModifSegArtListeArticleDecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDemandeModifSegArtListeArticleDecl1.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declDemandeModifSegArtSaisirDemande" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDemandeModifSegArtSaisieForm.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.listeErreurDemandeModifDecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/listeErreur.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.declDemandeModifSegArtMessageForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDemandeModifSegArtSendMess.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.declDemandeModifSegGenMessageForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDemandeModifSegGenSendMess.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.declDetailModifCompare" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDetailModifCompareForm.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.tresorEcheancierReglement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorEcheancierReglement.jsp" />
+	</definition>
+
+	<definition name="struts2tiles.tresorEchReglListeDeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorEchReglListeDeclaration.jsp" />
+	</definition>
+
+	<definition name="struts2tiles.tresorRetardReglListeDecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorRetardReglListeDecl.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.declDemandeModifSegArtConsulterSegGenDecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDemandeModifSegGenConsulDetailSegGen.jsp" />
+	</definition>
+
+	<definition name="struts2tiles.tresorSaisiePreparationDossierEtape1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorPreparationDossierEtape1.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ConsulterSegGeneralManif" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneConsultationSegmentGeneralManifeste.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.tresorSaisiePreparationDossierEtape2" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorPreparationDossierEtape2.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.ConsultEtatApurement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneConsultationEtatApurementArticleManifeste.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ConsulterArtManif" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneConsultationArticleManifeste.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ConsulterMessage" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneConsultationMessageDemande.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.demandeModifComparaisonArt" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDetailModifArtComparForm.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.ConsulterValiderDdeRegul" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneConsultationRegularisationDemande.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.tresorSaisiePreparationDossierEtape3" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorPreparationDossierEtape3.jsp" />
+	</definition>
+		
+	<definition name="struts2tiles.tresorPreparationDossierEtape1-1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorPreparationDossierEtape1-1.jsp" />
+	</definition>
+
+	<definition name="struts2tiles.tresorRechercherDeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorRechercherDeclaration.jsp" />
+	</definition>
+
+	<definition name="struts2tiles.tresorSaisieReglementComptant_1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieReglementComptant_1.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationTarif" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationTarif/consultationTarif.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercherCreditaireTresor" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorRechercherCreditaire.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieCreditaireTresor" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieCreditaire.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.editCreditaireTresor" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorEditCreditaire.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieDecisionRetrait" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieDecisionRetrait.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieDecisionSuspension" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieDecisionSuspension.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieDecisionLeveeSuspension" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieDecisionLeveeSuspension.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.tresorRechercherCredit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorRechercherCredit.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieDecisionExtension" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieDecisionExtension.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieExtensionCredit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieExtension.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.editExtensionCredit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorEditExtension.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieDecisionRenouvellement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieDecisionRenouvellement.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieRenouvellementCredit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieRenouvellement.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.editRenouvellementCredit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorEditRenouvellement.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieAutorisationCredit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieAutorisation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.editAutorisationCredit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorEditAutorisation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheChapitre" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationTarif/rechercheChapitre.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.recherchePosition" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationTarif/recherchePosition.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheProduit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationTarif/rechercheProduit.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheFiscalite" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationTarif/rechercheFiscalite.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.devisArticle" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDevisArticle.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.SommierProrogationSommier" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/sommiers/sommiersProrogationSommier.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.sommiersConsulterProrogationSommier" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/sommiers/sommiersConsulterProrogationSommier.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.ventilationApur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/sommiers/sommierVentilationApur.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.ventilationSommierApur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierVentilationApur.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.SommierConsultationProrogation" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierProrogation.jsp" />
+	</definition>	
+
+	<definition name="struts2tiles.tresorRechercherAvoirCreditaire" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorRechercherAvoirCreditaire.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.tresorConsultationAvoirCreditaire" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorConsultationAvoirCreditaire.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.tresorRechercherRemboursement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorRechercherRemboursement.jsp" />
+	</definition>
+	
+
+	<definition name="struts2tiles.tresConsultationRecetteCredit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorRecettesCreditParTaxes.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.tresConsultationRecetteComptant" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorRecettesComptantParTaxes.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.tresConsulterRecetteParModeReglement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorRecettesParModeReglement.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.tresRechercherDossierReglement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorRechercherDossierReglement.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.tresEditerDossierReglement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorEditDossierReglement.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.utilisateur" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/_utilisateur/utilisateur.jsp" />
+	</definition>
+
+	<definition name="struts2tiles.changePW" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/_utilisateur/changePW.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcMessagesRecus" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/messagerie/messagerieRechercheMessagesRecus.jsp" />
+	</definition>
+	<definition name="struts2tiles.nouveaumessage" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/messagerie/messagerieSaisieMessage.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcMessagesEnvoyes" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/messagerie/messagerieRechercheMessagesEnvoyes.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcMessagesSuite" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/messagerie/messagerieRechercheMessagesSuite.jsp" />
+	</definition>
+	<definition name="struts2tiles.consulterMsg" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/messagerie/messagerieConsultationMessage.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheBottin" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/messagerie/messagerieRechercheBottin.jsp" />
+	</definition>
+
+	<definition name="struts2tiles.tresorSaisieConsignationAvoir" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieConsignationAvoir.jsp" />
+	</definition>
+
+	<definition name="struts2tiles.tresorEditConsignationAvoir" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorEditConsignationAvoir.jsp" />
+	</definition>
+
+	<definition name="struts2tiles.rechercherDep" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/dep/depRecherche.jsp" />
+	</definition>	
+
+	<definition name="struts2tiles.tresorJournauxTresor" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorJournauxTresor.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.regularisationTvaConsultation" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/regularisationTva/regularisationTvaConsultation.jsp" />
+	</definition>
+	
+	
+	<definition name="struts2tiles.listerUserActif" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/_utilisateur/listeUserActif.jsp" />
+	</definition>
+	
+		<definition name="struts2tiles.liberationSignature" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/_utilisateur/liberationSignature.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.reinitialiserPWD" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/_utilisateur/reinitialisationPWD.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.liberationUneSignature" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/rc/_utilisateur/liberationUneSignature.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.regularisationTvaAffiche" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/douane/regularisationTva/regularisationTvaAffiche.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.copieDeclarationDetail" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/declaration/declDeclarationDetailCopie.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.saisieTranchesQuittances" extends="baseLayout">
+		<put-attribute name="content"
+			value="/pages/tresor/tresorSaisieTranchesQuittances.jsp"/>
+	</definition>	
+	
+	<definition name="struts2tiles.douaRechercheDeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneRechercheDemande.jsp" />
+	</definition>
+	<definition name="struts2tiles.demandeRectifComparaison" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/demandes/contents/declDetailRectifCompareForm.jsp"/>
+	</definition>
+	<definition name="struts2tiles.devisRectifArtDec" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/douaneDevisRectifArtDec.jsp" />
+	</definition>
+	
+	<!-- SelectionCotation -->
+		<definition name="struts2tiles.rechercheCapaciteVerificateur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/capaciteVerificateur/capaciteVerificateurRecherche.jsp" />
+	</definition>
+	
+	<!-- definition name="struts2tiles.rechercheCriteresGlobaux" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/criteresglobaux/criteresglobauxRecherche.jsp" />
+	</definition-->
+	<definition name="struts2tiles.critereLocauxCotation" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/cotation/cotationCritere.jsp" />
+	</definition>
+	<definition name="struts2tiles.consulterChaineDeTest" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/cotation/cotationConsultationChaine.jsp" />
+	</definition>
+	<definition name="struts2tiles.ajoutChaineDeTest" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/cotation/cotationAjoutChaine.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheCapaciteVerificateur2" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/capaciteVerificateur/capaciteVerificateurModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieCapaciteVerificateur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/capaciteVerificateur/capaciteVerificateurSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationCapaciteVerificateur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/capaciteVerificateur/capaciteVerificateurConsultation.jsp" />
+	</definition>
+	
+	<!-- definition name="struts2tiles.rechercheCriteresGlobaux2" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/criteresglobaux/criteresglobauxModification.jsp" />
+	</definition-->
+	<definition name="struts2tiles.modificationSelectionCotation" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/cotation/cotationModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationSelectionCotation2" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/cotation/cotationMiseAJour.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationTranchesQuittances" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorConsultationTranchesQuittances.jsp" />
+	</definition>
+	<definition name="struts2tiles.QuittanceArchive" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorArchivageTranchesQuittances.jsp" />
+	</definition>
+	<definition name="struts2tiles.QuittanceDesarchive" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorDesarchivageTranchesQuittances.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieQuittanceExclue" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieQuittanceExclue.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercherArchive" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorRechercherTranchesQuittances.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcCompagnieassistee" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/compagnieAssistee/rcCompagnieassisteeRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcCompagnieassistee" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/compagnieAssistee/rcCompagnieassisteeConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcCompagnieassistee" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/compagnieAssistee/rcCompagnieassisteeModification.jsp" />
+	</definition>
+		<definition name="struts2tiles.rechercheRcConsignataires" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/consignataires/rcConsignatairesRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcConsignataires" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/consignataires/rcConsignatairesConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcCreditaires" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/creditaires/rcCreditairesRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcCreditaires" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/creditaires/rcCreditairesConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcPpm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/ppm/rcPpmRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcPpm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/ppm/rcPpmConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcAgree" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/agree/rcAgreeRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcAgree" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/agree/rcAgreeConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcAmbassadeorganisme" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/ambassadeorganisme/rcAmbassadeorganismeRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcAmbassadeorganisme" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/ambassadeorganisme/rcAmbassadeorganismeConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcImportexport" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/importexport/rcImportexportRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcImportexport" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/importexport/rcImportexportConsultation.jsp" />
+	</definition>
+	
+	
+	<!-- XXXXXXX FIN HS XXXX-->		
+	<definition name="struts2tiles.tresSaisieQuittanceReglementCredit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSaisieQuittanceReglementCredit.jsp" />
+	</definition>
+	<!-- XXXXXXX DEBUT SPECIALISATION AGENT XXXX-->		
+	<definition name="struts2tiles.specialisationAgent" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteSpecialisationAgent.jsp" />
+	</definition>	
+	<definition name="struts2tiles.specialisationProduit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteSpecialisationAgentProduit.jsp" />
+	</definition>		
+	<definition name="struts2tiles.specSaisieProduit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteSpecSaisieProduitAgent.jsp" />
+	</definition>
+	<definition name="struts2tiles.specEditProduit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteSpecEditProduitAgent.jsp" />
+	</definition>	
+	<definition name="struts2tiles.specialisationRegime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteSpecialisationAgentRegime.jsp" />
+	</definition>	
+	<definition name="struts2tiles.specSaisieRegime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/visite/visiteSpecAgentRegSaisie.jsp" />
+	</definition>	
+	<!-- XXXXXXX FIN SPECIALISATION AGENT XXXX-->			
+	<definition name="struts2tiles.declDeclarationDetailArticleSaisie_4" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleSaisie_4.jsp" />
+	</definition>
+	<definition name="struts2tiles.declDeclarationDetailPdtFiniSaisie" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailPdtFiniSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.ConsulterTransbEnreg" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/transbordement/transbContents/decTransbRechercheForm.jsp" />
+	</definition>
+	<definition name="struts2tiles.ViewTransbEnreg" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/transbordement/transbContents/decTransbViewForm.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRegimeeconomique" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationRegimeeconomique/rechercheRegimeeconomique.jsp" />
+	</definition>
+	<definition name="struts2tiles.cherchesRegimeeconomique" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationRegimeeconomique/recherchesRegimeeconomique.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheProduitsfinis" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationRegimeeconomique/rechercheProduits.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationBureaux" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationRegimeeconomique/consultationBureaux.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheGammes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationRegimeeconomique/rechercheGammes.jsp" />
+	</definition>
+		<definition name="struts2tiles.modificationRegimeEconomique" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationRegimeeconomique/modificationRegimeeconomique.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRegimeEconomique" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationRegimeeconomique/saisieRegimeeconomique.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieProduitFinis" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationRegimeeconomique/SaisieProduitFini.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieMatierePremiere" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationRegimeeconomique/saisieMatierePremiere.jsp" />
+	</definition>	
+	<!-- XXXXXXX COMPTABILITE BUREAU DOUANE XXXX-->	
+	<definition name="struts2tiles.comptaburtax" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/comptaburtax/comptaburtaxConsultation.jsp" />
+	</definition>	
+	<definition name="struts2tiles.recherchePays" extends="baseLayout">
+		<put-attribute name="content" value="/pages/fiscDerogPays/recherchePays.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationFiscalite" extends="baseLayout">
+		<put-attribute name="content" value="/pages/fiscDerogPays/consultationFiscalite.jsp" />
+	</definition>	
+	<definition name="struts2tiles.rechercheTaxes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationTaxes/rechercheTaxes.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheTaux" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationTaxes/rechercheTaux.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcNaturefiscalite" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/naturefiscalite/rcNaturefiscaliteRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcNaturefiscalite" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/naturefiscalite/rcNaturefiscaliteModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcNaturefiscalite" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/naturefiscalite/rcNaturefiscaliteConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcTaux" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taux/rcTauxRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTaux" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taux/rcTauxConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.modificationRcTaux" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taux/rcTauxModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTaux" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taux/rcTauxSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.declApurementTitrePrecedentSaisie1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declApurementTitrePrecedentSaisie1.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcNaturefiscalite" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/naturefiscalite/rcNaturefiscaliteSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieRcCreditaires" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/creditaires/rcCreditairesSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcCreditaires" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/creditaires/rcCreditairesModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieRcCompagnieassistee" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/compagnieAssistee/rcCompagnieassisteeSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcCompagnieassistee" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/compagnieAssistee/rcCompagnieassisteeModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieRcConsignataires" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/consignataires/rcConsignatairesSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcConsignataires" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/consignataires/rcConsignatairesModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcAgree" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/agree/rcAgreeSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcAgree" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/agree/rcAgreeModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcAmbassadeorganisme" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/ambassadeorganisme/rcAmbassadeorganismeSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcAmbassadeorganisme" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/ambassadeorganisme/rcAmbassadeorganismeModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheAgent" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/autorisation/rechercherAgent.jsp" />
+	</definition>
+	<definition name="struts2tiles.majAutorisationAgent" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/autorisation/majAutorisationAgent.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieRcImportexport" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/importexport/rcImportexportSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcImportexport" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/importexport/rcImportexportModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcTarifsUemoa" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/tarifsUemoa/rcTarifsUemoaRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTarifsUemoa" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/tarifsUemoa/rcTarifsUemoaSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcTarifsUemoa" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/tarifsUemoa/rcTarifsUemoaModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTarifsUemoa" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/tarifsUemoa/rcTarifsUemoaConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieStructurePrix" extends="baseLayout">
+		<put-attribute name="content" value="/pages/structurePrix/saisieStructurePrix.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheBurDouane" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/bureaudouane/rcBureaudouaneRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcProduitsUemoa" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/tarifsUemoa/rcTarifsUemoaProduits.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcProduitsUemoa" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/tarifsUemoa/rcTarifsUemoaConsultationProduits.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcProduitsUemoa" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/tarifsUemoa/rcTarifsUemoaSaisieProduits.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultArticleDetail_1" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleConsultation_1.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieRcBureaudouane" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/bureaudouane/rcBureaudouaneSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcBureaudouane" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/bureaudouane/rcBureaudouaneModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcBureaudouane" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/bureaudouane/rcBureaudouaneConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.devisart" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDevisArticleConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultArticleDetail_2" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationDetailArticleConsultation_2.jsp" />
+	</definition>
+	<definition name="struts2tiles.f9" extends="baseLayout">
+		<put-attribute name="content" value="/f9jsp/f9.jsp" />
+	</definition>
+	<definition name="struts2tiles.f91" extends="baseLayout">
+		<put-attribute name="content" value="/f9jsp/f91.jsp" />
+	</definition>
+	<definition name="struts2tiles.f92" extends="baseLayout">
+		<put-attribute name="content" value="/f9jsp/f92.jsp" />
+	</definition>
+	<definition name="struts2tiles.f93" extends="baseLayout">
+		<put-attribute name="content" value="/f9jsp/f93.jsp" />
+	</definition>
+	<definition name="struts2tiles.f94" extends="baseLayout">
+		<put-attribute name="content" value="/f9jsp/f94.jsp" />
+	</definition>
+	<definition name="struts2tiles.f95" extends="baseLayout">
+		<put-attribute name="content" value="/f9jsp/f95.jsp" />
+	</definition>
+	<definition name="struts2tiles.f96" extends="baseLayout">
+		<put-attribute name="content" value="/f9jsp/f96.jsp" />
+	</definition>
+	<definition name="struts2tiles.f97" extends="baseLayout">
+		<put-attribute name="content" value="/f9jsp/f97.jsp" />
+	</definition>
+	<definition name="struts2tiles.f98" extends="baseLayout">
+		<put-attribute name="content" value="/f9jsp/f98.jsp" />
+	</definition>
+	<definition name="struts2tiles.rc2" extends="baseLayout">
+		<put-attribute name="content" value="/rcconsult/rc2.jsp" />
+	</definition>
+	<definition name="struts2tiles.rc3" extends="baseLayout">
+		<put-attribute name="content" value="/rcconsult/rc3.jsp" />
+	</definition>
+	<definition name="struts2tiles.rc4" extends="baseLayout">
+		<put-attribute name="content" value="/rcconsult/rc4.jsp" />
+	</definition>
+	<definition name="struts2tiles.rc5" extends="baseLayout">
+		<put-attribute name="content" value="/rcconsult/rc5.jsp" />
+	</definition>
+	<definition name="struts2tiles.suiviLiqSuppl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/tresor/tresorSuiviLiquidationSupplementaire.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcFonctionnalites" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/fonctionnalites/rcFonctionnalitesRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.modificationRcFonctionnalites" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/fonctionnalites/rcFonctionnalitesModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcFonctionnalites" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/fonctionnalites/rcFonctionnalitesConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcFonctionnalites" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/fonctionnalites/rcFonctionnalitesSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcGroupefonction" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/groupefonction/rcGroupefonctionRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.modificationRcGroupefonction" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/groupefonction/rcGroupefonctionModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcGroupefonction" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/groupefonction/rcGroupefonctionConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcGroupefonction" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/groupefonction/rcGroupefonctionSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcProfil" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/profil/rcProfilRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.modificationRcProfil" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/profil/rcProfilModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcProfil" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/profil/rcProfilConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcProfil" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/profil/rcProfilSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcSoumissioncreditaire" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/soumissioncreditaire/rcSoumissioncreditaireRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.modificationRcSoumissioncreditaire" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/soumissioncreditaire/rcSoumissioncreditaireModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcSoumissioncreditaire" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/soumissioncreditaire/rcSoumissioncreditaireConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcSoumissioncreditaire" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/soumissioncreditaire/rcSoumissioncreditaireSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcUtilisateur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/utilisateur/rcUtilisateurRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.modificationRcUtilisateur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/utilisateur/rcUtilisateurModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcUtilisateur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/utilisateur/rcUtilisateurConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcUtilisateur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/utilisateur/rcUtilisateurSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.rechercheRcBurdouanetypeman" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/burdouanetypeman/rcBurdouanetypemanRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.modificationRcBurdouanetypeman" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/burdouanetypeman/rcBurdouanetypemanModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcBurdouanetypeman" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/burdouanetypeman/rcBurdouanetypemanConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcBurdouanetypeman" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/burdouanetypeman/rcBurdouanetypemanSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcBasestaxables" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/basestaxables/rcBasestaxablesRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.modificationRcBasestaxables" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/basestaxables/rcBasestaxablesModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcBasestaxables" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/basestaxables/rcBasestaxablesConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcBasestaxables" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/basestaxables/rcBasestaxablesSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.blocageRechercheDeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/blocage/blocageRechercheDecl.jsp" />
+	</definition>
+
+	<definition name="struts2tiles.rechercheRcBureauuemoa" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/bureauuemoa/rcBureauuemoaRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.modificationRcBureauuemoa" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/bureauuemoa/rcBureauuemoaModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcBureauuemoa" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/bureauuemoa/rcBureauuemoaConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcBureauuemoa" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/bureauuemoa/rcBureauuemoaSaisie.jsp" />
+	</definition>
+	
+
+	<definition name="struts2tiles.consulterDeclarationDetailEnregAffichage" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationEnregRechercheAffichage.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consulterDeclarationDetailEnregEncours" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/declDeclarationEnregRechercheEncours.jsp" />
+	</definition>
+
+	<definition name="struts2tiles.SommierHistSearchForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierHistConsultRech.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.SommierHistTransSearchForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierTranfertHistRech.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.SommierHistViewForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierHistConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.SommierHistModifSearchForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierHistModifRech.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.SommierHistAddNew" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierHistSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.SommierHistModifEditForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierHistModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.SommierHistModifViewForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierHistEdit.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieRcDelegations" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/delegations/rcDelegationsSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.SommierConsultationfailliteSearchForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierCessionRechFaillite.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.SommierConsultationfailliteValidateForm" extends="baseLayout">
+		<put-attribute name="content" value="/pages/declaration/sommier/sommierCessionValidateFaillite.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheProduits" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/produits/rcProduitsRecherche.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.modificationProduits" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/produits/rcProduitsModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationProduits" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/produits/rcProduitsConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieProduits" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/produits/rcProduitsSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consulterRectifConteneur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/manifeste/manifDemandeRectifConsultationConteneur.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.depRegulariserExoSuiteDep" extends="baseLayout">
+		<put-attribute name="content" value="/pages/douane/dep/depRegularisationExo.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcClasse" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/classe/rcClasseRecherche.jsp" />
+	</definition>	
+	
+	<definition name="struts2tiles.modificationRcClasse" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/classe/rcClasseModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationRcClasse" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/classe/rcClasseConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieRcClasse" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/classe/rcClasseSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcPiecesjointes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/piecesjointes/rcPiecesjointesRecherche.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.saisieRcPiecesjointes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/piecesjointes/rcPiecesjointesSaisie.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.modificationRcPiecesjointes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/piecesjointes/rcPiecesjointesModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.consultationRcPiecesjointes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/piecesjointes/rcPiecesjointesConsultation.jsp" />
+	</definition>
+	
+	
+	<definition name="struts2tiles.rechercheRcDispenses" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/dispenses/rcDispensesRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.modificationRcDispenses" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/dispenses/rcDispensesModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcDispenses" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/dispenses/rcDispensesConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcDispenses" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/dispenses/rcDispensesSaisie.jsp" />
+	</definition>
+	
+	
+	<definition name="struts2tiles.rechercheRcDispensespj" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/dispensespj/rcDispensespjRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.modificationRcDispensespj" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/dispensespj/rcDispensespjModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcDispensespj" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/dispensespj/rcDispensespjConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcDispensespj" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/dispensespj/rcDispensespjSaisie.jsp" />
+	</definition>
+	
+	
+	<definition name="struts2tiles.rechercheRcCatregroup" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/catregroup/rcCatregroupRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.consultationRcCatregroup" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/catregroup/rcCatregroupConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheDevises" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationDevises/rechercheDevises.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRegime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationtables/regime/RechercheRegime.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.apurementRegime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/consultationtables/regime/ApurementRegime.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcLieudepot" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/lieudepot/rcLieudepotRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.consultationRcLieudepot" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/lieudepot/rcLieudepotConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcLieudepot" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/lieudepot/rcLieudepotSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcLieudepot" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/lieudepot/rcLieudepotModification.jsp" />
+	</definition>
+	
+	
+	<definition name="struts2tiles.rechercheRcPays" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/pays/rcPaysRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.consultationRcPays" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/pays/rcPaysConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcPays" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/pays/rcPaysSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcPays" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/pays/rcPaysModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcExceptionstaxes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/exceptionstaxes/rcExceptionstaxesRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.consultationRcExceptionstaxes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/exceptionstaxes/rcExceptionstaxesConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcExceptionstaxes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/exceptionstaxes/rcExceptionstaxesSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcExceptionstaxes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/exceptionstaxes/rcExceptionstaxesModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcIndicateur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateur/rcIndicateurRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.consultationRcIndicateur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateur/rcIndicateurConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcIndicateur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateur/rcIndicateurSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcIndicateur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateur/rcIndicateurModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcIndicateurregdou" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateurregdou/rcIndicateurregdouRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.consultationRcIndicateurregdou" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateurregdou/rcIndicateurregdouConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcIndicateurregdou" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateurregdou/rcIndicateurregdouSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcIndicateurregdou" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateurregdou/rcIndicateurregdouModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcModedeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modedeclaration/rcModedeclarationRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.consultationRcModedeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modedeclaration/rcModedeclarationConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcModedeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modedeclaration/rcModedeclarationSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcModedeclaration" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modedeclaration/rcModedeclarationModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcModedeclvaleur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modedeclvaleur/rcModedeclvaleurRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.consultationRcModedeclvaleur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modedeclvaleur/rcModedeclvaleurConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcModedeclvaleur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modedeclvaleur/rcModedeclvaleurSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcModedeclvaleur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modedeclvaleur/rcModedeclvaleurModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcProduitspjt" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/produitspjt/rcProduitspjtRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.consultationRcProduitspjt" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/produitspjt/rcProduitspjtConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcProduitspjt" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/produitspjt/rcProduitspjtSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcProduitspjt" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/produitspjt/rcProduitspjtModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcRegapuregapure" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regapuregapure/rcRegapuregapureRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.consultationRcRegapuregapure" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regapuregapure/rcRegapuregapureConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcRegapuregapure" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regapuregapure/rcRegapuregapureSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcRegapuregapure" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regapuregapure/rcRegapuregapureModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcRegdoumodedecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regdoumodedecl/rcRegdoumodedeclRecherche.jsp" />
+	</definition>	
+	<definition name="struts2tiles.consultationRcRegdoumodedecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regdoumodedecl/rcRegdoumodedeclConsultation.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcRegdoumodedecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regdoumodedecl/rcRegdoumodedeclSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcRegdoumodedecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regdoumodedecl/rcRegdoumodedeclModification.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcDevises" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/devises/rcDevisesRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcDevises" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/devises/rcDevisesSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcDevises" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/devises/rcDevisesModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcDevises" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/devises/rcDevisesConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcRegimedestinataire" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedestinataire/rcRegimedestinataireRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcRegimedestinataire" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedestinataire/rcRegimedestinataireSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcRegimedestinataire" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedestinataire/rcRegimedestinataireModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcRegimedestinataire" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedestinataire/rcRegimedestinataireConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcRegimedouanier" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedouanier/rcRegimedouanierRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcRegimedouanier" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedouanier/rcRegimedouanierSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcRegimedouanier" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedouanier/rcRegimedouanierModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcRegimedouanier" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedouanier/rcRegimedouanierConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcRegimefiscal" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimefiscal/rcRegimefiscalRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcRegimefiscal" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimefiscal/rcRegimefiscalSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcRegimefiscal" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimefiscal/rcRegimefiscalModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcRegimefiscal" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimefiscal/rcRegimefiscalConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcRegroupement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regroupement/rcRegroupementRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcRegroupement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regroupement/rcRegroupementSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcRegroupement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regroupement/rcRegroupementModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcRegroupement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regroupement/rcRegroupementConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcTyperegimedouane" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeregimedouane/rcTyperegimedouaneRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTyperegimedouane" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeregimedouane/rcTyperegimedouaneSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcTyperegimedouane" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeregimedouane/rcTyperegimedouaneModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTyperegimedouane" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeregimedouane/rcTyperegimedouaneConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcTypeapurement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeapurement/rcTypeapurementRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTypeapurement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeapurement/rcTypeapurementSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcTypeapurement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeapurement/rcTypeapurementModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTypeapurement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeapurement/rcTypeapurementConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcTaxesregime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxesregime/rcTaxesregimeRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTaxesregime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxesregime/rcTaxesregimeSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcTaxesregime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxesregime/rcTaxesregimeModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTaxesregime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxesregime/rcTaxesregimeConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcTaxesregdou" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxesregdou/rcTaxesregdouRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTaxesregdou" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxesregdou/rcTaxesregdouSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcTaxesregdou" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxesregdou/rcTaxesregdouModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTaxesregdou" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxesregdou/rcTaxesregdouConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcRegrouppays" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regrouppays/rcRegrouppaysRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcRegrouppays" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regrouppays/rcRegrouppaysSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcRegrouppays" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regrouppays/rcRegrouppaysModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcRegrouppays" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regrouppays/rcRegrouppaysConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcRegimeburinterdit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimeburinterdit/rcRegimeburinterditRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcRegimeburinterdit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimeburinterdit/rcRegimeburinterditSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcRegimeburinterdit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimeburinterdit/rcRegimeburinterditModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcRegimeburinterdit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimeburinterdit/rcRegimeburinterditConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcRegime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regime/rcRegimeRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcRegime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regime/rcRegimeSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcRegime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regime/rcRegimeModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcRegime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regime/rcRegimeConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcRegimedeclarant" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedeclarant/rcRegimedeclarantRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcRegimedeclarant" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedeclarant/rcRegimedeclarantSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcRegimedeclarant" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedeclarant/rcRegimedeclarantModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcRegimedeclarant" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimedeclarant/rcRegimedeclarantConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcSoumissiondoc" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/soumissiondoc/rcSoumissiondocRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcSoumissiondoc" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/soumissiondoc/rcSoumissiondocSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcSoumissiondoc" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/soumissiondoc/rcSoumissiondocModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcSoumissiondoc" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/soumissiondoc/rcSoumissiondocConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcTypemanifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typemanifeste/rcTypemanifesteRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTypemanifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typemanifeste/rcTypemanifesteSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcTypemanifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typemanifeste/rcTypemanifesteModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTypemanifeste" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typemanifeste/rcTypemanifesteConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcTypelieuemb" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typelieuemb/rcTypelieuembRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTypelieuemb" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typelieuemb/rcTypelieuembSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcTypelieuemb" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typelieuemb/rcTypelieuembModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTypelieuemb" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typelieuemb/rcTypelieuembConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcTypeconteneur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeconteneur/rcTypeconteneurRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTypeconteneur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeconteneur/rcTypeconteneurSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcTypeconteneur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeconteneur/rcTypeconteneurModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTypeconteneur" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typeconteneur/rcTypeconteneurConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcTypebureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typebureau/rcTypebureauRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTypebureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typebureau/rcTypebureauSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcTypebureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typebureau/rcTypebureauModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTypebureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/typebureau/rcTypebureauConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcModetransport" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modetransport/rcModetransportRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcModetransport" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modetransport/rcModetransportSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcModetransport" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modetransport/rcModetransportModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcModetransport" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modetransport/rcModetransportConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcModeconditionnement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modeconditionnement/rcModeconditionnementRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcModeconditionnement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modeconditionnement/rcModeconditionnementSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcModeconditionnement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modeconditionnement/rcModeconditionnementModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcModeconditionnement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/modeconditionnement/rcModeconditionnementConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcLieuembarquement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/lieuembarquement/rcLieuembarquementRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcLieuembarquement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/lieuembarquement/rcLieuembarquementSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcLieuembarquement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/lieuembarquement/rcLieuembarquementModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcLieuembarquement" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/lieuembarquement/rcLieuembarquementConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcCircuitvisite" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/circuitvisite/rcCircuitvisiteRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcCircuitvisite" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/circuitvisite/rcCircuitvisiteSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcCircuitvisite" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/circuitvisite/rcCircuitvisiteModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcCircuitvisite" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/circuitvisite/rcCircuitvisiteConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheLangue" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/langue/rcLangueRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcLangue" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/langue/rcLangueSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcLangue" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/langue/rcLangueModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcLangue" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/langue/rcLangueConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheGenrebureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/genrebureau/rcGenrebureauRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcGenrebureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/genrebureau/rcGenrebureauSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcGenrebureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/genrebureau/rcGenrebureauModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcGenrebureau" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/genrebureau/rcGenrebureauConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcBurmoddecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/burmoddecl/rcBurmoddeclRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcBurmoddecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/burmoddecl/rcBurmoddeclSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcBurmoddecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/burmoddecl/rcBurmoddeclModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcBurmoddecl" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/burmoddecl/rcBurmoddeclConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcTaxes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxes/rcTaxesRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTaxes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxes/rcTaxesSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcTaxes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxes/rcTaxesModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTaxes" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/taxes/rcTaxesConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcNumerotation" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/numerotation/rcNumerotationRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcNumerotation" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/numerotation/rcNumerotationSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcNumerotation" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/numerotation/rcNumerotationModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcNumerotation" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/numerotation/rcNumerotationConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcRegimeproduit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimeproduit/rcRegimeproduitRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcRegimeproduit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimeproduit/rcRegimeproduitSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcRegimeproduit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimeproduit/rcRegimeproduitModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcRegimeproduit" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/regimeproduit/rcRegimeproduitConsultation.jsp" />
+	</definition>
+	
+	<definition name="struts2tiles.rechercheRcIndicateurregime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateurregime/rcIndicateurregimeRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcIndicateurregime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateurregime/rcIndicateurregimeSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcIndicateurregime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateurregime/rcIndicateurregimeModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcIndicateurregime" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/indicateurregime/rcIndicateurregimeConsultation.jsp" />
+	</definition>
+	
+		<definition name="struts2tiles.rechercheRcTarifs" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/tarifs/rcTarifsRecherche.jsp" />
+	</definition>
+	<definition name="struts2tiles.saisieRcTarifs" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/tarifs/rcTarifsSaisie.jsp" />
+	</definition>
+	<definition name="struts2tiles.modificationRcTarifs" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/tarifs/rcTarifsModification.jsp" />
+	</definition>
+	<definition name="struts2tiles.consultationRcTarifs" extends="baseLayout">
+		<put-attribute name="content" value="/pages/rc/tarifs/rcTarifsConsultation.jsp" />
+	</definition>
+</tiles-definitions>

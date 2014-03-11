@@ -1,0 +1,89 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>sn.com.douane</groupId>
+	<version>1.0</version>
+	<artifactId>projects-groups</artifactId>
+	<packaging>pom</packaging>
+	<name>pom-parent</name>
+	
+	<!-- ensemble des modules à deployer -->
+	<modules>
+		<module>gainde-demo</module>		
+	</modules>	
+
+	<!-- les proprietes a mettre a jour en fonction de l'environement -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<integration.host>localhost</integration.host>
+		<integration.login>tomcat-gainde</integration.login>
+		<integration.password>tomcat-gainde</integration.password>
+		<gainde.context>gainde-demo</gainde.context>		
+	</properties>
+
+	<distributionManagement>
+				
+		<repository>
+			<id>releases</id>
+			<name>releases Repository</name>
+			<url>file:///home/tomcat-jenkins/.m2/repository</url>
+		</repository>	
+	</distributionManagement>
+	
+	<repositories>
+		<repository>
+			<id>apache-m2-snapshot</id>
+			<name>Apache Snapshot Repository</name>
+			<url>http://repository.apache.org/snapshots</url>
+		</repository>
+	</repositories>
+
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>1.6</source>
+						<target>1.6</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-ejb-plugin</artifactId>
+					<configuration>
+						<ejbVersion>3.0</ejbVersion>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<classpathPrefix>lib/</classpathPrefix>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+				  <groupId>org.codehaus.mojo</groupId>
+				  <artifactId>cobertura-maven-plugin</artifactId>
+				  <version>2.4</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		
+	</build> 
+	
+	 <developers>
+    <developer>
+      <id>amadou</id>
+      <name>Amadou</name>
+      <email>amba@douanes.sn</email>
+      <url></url>
+      <organization>Douane</organization>      
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>    
+    </developer>
+  </developers> 
+</project>

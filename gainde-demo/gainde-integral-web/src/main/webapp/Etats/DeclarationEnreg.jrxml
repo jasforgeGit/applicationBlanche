@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="DeclarationEnreg" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30">
+	<property name="com.jasperassistant.designer.DataSource" value="bd102042"/>
+	<property name="com.jasperassistant.designer.Grid" value="false"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<parameter name="ppath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\workspace\\GAINDE2005Web\\WebContent\\Etats\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT d.DECANNEEENREGDEC,d.DECBURENREGDEC, d.DECDATEENREGDEC,d.DECNUMDECLARATION DECNUMDECLARATION,d.DECDOSSIER, d.DECNUMREPERTOIRE, d.DECREFDECL, d.DECNBREARTICLES, d.DECBURDOUANE, d.DECBURFRONTIERE, d.DECMODEDECLARATION,  d.DECNOMDECLARANT,d.DECVILLEDECL, d.DECBPDECLARANT, d.DECTYPEVOIEDECL, d.DECNOMVOIEDECL, d.DECCODEPPMDEC, d.DECTYPEAPUREMENT, d.DECCODEAGREE, d.DECPAYSPROVENANCE, d.DECCODEDESTINATAIRE, d.DECNOMDESTINATAIRE, d.DECNUMVOIEDEST, d.DECNOMVOIEDECL, d.DECTYPEVOIEDEST,d.DECCIRCUITVISITE, d.DECTYPEREGIME,
+d.DECVILLEDESTINATAIRE, d.DECBPDESTINATAIRE,d.DECMOYENTRANSPORT, d.DECPAYSDESTINATION,  d.DECMODEPAIEMENT,d.DECMODETRANSPORT,
+d.DECCODECREDITAIRE,d.DECMTCOMPTANT, d.DECMONTCFAFACTURE, d.DECMONTCFAFRET, d.DECASSURCFA, d.DECMONTASSURCFAELEM, d.DECREGDOUANIER,TA.RCLIBELLEAPUREMENT,rd.RCLIBELLEREGIMEDOUANIER, c.RCDESCIRCUITVISITE, p.RCCODECONTRIBUABLE, p.RCRAISONSOCIALE, p.RCPRENOMPPM, p.RCNOMPPM, p.RCNUMPPM, p.RCNOMVOIEPPM, p.RCVILLEPPM,m.MANIFMOYENTRANSPORT, m.MANIFDATEARRIVEE, m.MANIFMODETRANSPORT, PJ.DECCODEPIECEJT,MT.RCLIBELLEMODETRANS,TM.rclibelletypemanif,a.DECNUMARTDEC, a.DECNUMDECLARATION ARTNUMDECLARATION, a.DECREGFISCAL, a.DECCODEPROD,P.RCLIBELLETARIF,a.DECPRECUEMOA, a.DECPRECSEN, a.DECPOIDSBRUTDEC, a.DECPDNETDEC,a.DECQTECOMPLEMENT, a.DECQTEMERC, a.DECNBRECOLISDECL,
+a.DECMODECOND, a.DECMARQCOLIS, a.DECPAYSDEST, a.DECPAYSORIGINE, a.DECDESCOMMERCIALE,a.DECMTCFAFOB, a.DECVALDEVFOB,
+a.DECVALDOUANE, a.DECMTLIQUIDART, a.DECNUMTITRETRANS CONNAISSEMENT,a.DECNUMARTMANIF, a.DECPRECARTMANIF, a.DECPREC2ARTMANIF,
+a.DECNUMAVSGS, a.DECSGSEXEMPTION, a.DECNUMSGSDPI, AM.MANIFDATEEMB, L.RCLIBELLELIEUEMB
+FROM ADMINISTRATEUR.SEGGENDEC d 
+INNER JOIN ADMINISTRATEUR.PPM P ON d.DECCODEPPMDEC =P.RCCODEPPM
+INNER JOIN ADMINISTRATEUR.CIRCUITVISITE C ON C.RCCODECIRCUIT = d.DECCIRCUITVISITE
+INNER JOIN ADMINISTRATEUR.REGIMEDOUANIER RD ON rd.RCTYPEREGIME = d.DECTYPEREGIME
+AND rd.RCCODEREGIMEDOUANIER = d.DECREGDOUANIER
+INNER JOIN ADMINISTRATEUR.SEGARTDEC a ON a.DECANNEEENREGDEC = d.DECANNEEENREGDEC
+AND a.DECBURENREGDEC = d.DECBURENREGDEC AND a.DECNUMDECLARATION = d.DECNUMDECLARATION
+AND d.DECANNEEENREGDEC ='2007'  AND d.DECBURENREGDEC ='00F' AND d.DECNUMDECLARATION =10000
+INNER JOIN ADMINISTRATEUR.PRODUITS P ON a.DECCODEPROD = p.RCCODEPROD AND
+A.DECPRECUEMOA=P.RCPRECUEMOA AND A.DECPRECSEN=P.RCPRECSENEGAL
+INNER JOIN ADMINISTRATEUR.TYPEAPUREMENT TA ON d.DECTYPEAPUREMENT=TA.RCCODEAPUREMENT
+LEFT JOIN ADMINISTRATEUR.MODETRANSPORT MT ON d.DECMODETRANSPORT=MT.RCCODEMODETRANS
+LEFT JOIN ADMINISTRATEUR.ARTDECPJT PJ ON A.DECANNEEENREGDEC=PJ.DECANNEEENREGDEC AND
+a.DECBURENREGDEC = PJ.DECBURENREGDEC AND a.DECNUMDECLARATION = PJ.DECNUMDECLARATION
+LEFT JOIN ADMINISTRATEUR.ARTICLEMANIFESTE AM ON a.DECANNEEENREGMANIF = AM.MANIFANNEeENGMANIF
+AND A.DECBURENREGMANIF=AM.MANIFBUREAUENGMANIF AND A.DECNUMENREGMANIF=AM.MANIFNUMENREGMANIF
+LEFT JOIN ADMINISTRATEUR.SEGMENTGENMANIFESTE M ON AM.MANIFANNEeENGMANIF=M.MANIFANNEEENREGMANIF
+AND AM.MANIFBUREAUENGMANIF=M.MANIFBUREAUENREGMANIF AND AM.MANIFNUMENREGMANIF=M.MANIFNUMENREGMANIF
+LEFT JOIN ADMINISTRATEUR.TYPEMANIFESTE TM ON M.MANIFTYPEMANIFESTE=TM.RCCODETYPEMANIF LEFT JOIN ADMINISTRATEUR.LIEUEMBARQUEMENT L ON AM.MANIFCODELIEUEMB=L.RCCODELIEUEMB]]>
+	</queryString>
+	<field name="ARTNUMDECLARATION" class="java.lang.Integer"/>
+	<field name="CONNAISSEMENT" class="java.lang.String"/>
+	<field name="DECANNEEENREGDEC" class="java.lang.String"/>
+	<field name="DECASSURCFA" class="java.math.BigDecimal"/>
+	<field name="DECBPDECLARANT" class="java.lang.String"/>
+	<field name="DECBPDESTINATAIRE" class="java.lang.String"/>
+	<field name="DECBURDOUANE" class="java.lang.String"/>
+	<field name="DECBURENREGDEC" class="java.lang.String"/>
+	<field name="DECBURFRONTIERE" class="java.lang.String"/>
+	<field name="DECCIRCUITVISITE" class="java.lang.String"/>
+	<field name="DECCODEAGREE" class="java.lang.String"/>
+	<field name="DECCODECREDITAIRE" class="java.lang.String"/>
+	<field name="DECCODEDESTINATAIRE" class="java.lang.String"/>
+	<field name="DECCODEPIECEJT" class="java.lang.String"/>
+	<field name="DECCODEPPMDEC" class="java.lang.String"/>
+	<field name="DECCODEPROD" class="java.lang.String"/>
+	<field name="DECDATEENREGDEC" class="java.util.Date"/>
+	<field name="DECDESCOMMERCIALE" class="java.lang.String"/>
+	<field name="DECDOSSIER" class="java.lang.String"/>
+	<field name="DECMARQCOLIS" class="java.lang.String"/>
+	<field name="DECMODECOND" class="java.lang.String"/>
+	<field name="DECMODEDECLARATION" class="java.lang.String"/>
+	<field name="DECMODEPAIEMENT" class="java.lang.String"/>
+	<field name="DECMODETRANSPORT" class="java.lang.String"/>
+	<field name="DECMONTASSURCFAELEM" class="java.math.BigDecimal"/>
+	<field name="DECMONTCFAFACTURE" class="java.math.BigDecimal"/>
+	<field name="DECMONTCFAFRET" class="java.math.BigDecimal"/>
+	<field name="DECMOYENTRANSPORT" class="java.lang.String"/>
+	<field name="DECMTCFAFOB" class="java.math.BigDecimal"/>
+	<field name="DECMTCOMPTANT" class="java.math.BigDecimal"/>
+	<field name="DECMTLIQUIDART" class="java.math.BigDecimal"/>
+	<field name="DECNBREARTICLES" class="java.lang.Integer"/>
+	<field name="DECNBRECOLISDECL" class="java.lang.Integer"/>
+	<field name="DECNOMDECLARANT" class="java.lang.String"/>
+	<field name="DECNOMDESTINATAIRE" class="java.lang.String"/>
+	<field name="DECNOMVOIEDECL" class="java.lang.String"/>
+	<field name="DECNUMARTDEC" class="java.lang.Integer"/>
+	<field name="DECNUMARTMANIF" class="java.lang.Integer"/>
+	<field name="DECNUMAVSGS" class="java.lang.String"/>
+	<field name="DECNUMDECLARATION" class="java.lang.Integer"/>
+	<field name="DECNUMREPERTOIRE" class="java.lang.String"/>
+	<field name="DECNUMSGSDPI" class="java.lang.String"/>
+	<field name="DECNUMVOIEDEST" class="java.lang.String"/>
+	<field name="DECPAYSDEST" class="java.lang.String"/>
+	<field name="DECPAYSDESTINATION" class="java.lang.String"/>
+	<field name="DECPAYSORIGINE" class="java.lang.String"/>
+	<field name="DECPAYSPROVENANCE" class="java.lang.String"/>
+	<field name="DECPDNETDEC" class="java.math.BigDecimal"/>
+	<field name="DECPOIDSBRUTDEC" class="java.math.BigDecimal"/>
+	<field name="DECPREC2ARTMANIF" class="java.lang.Integer"/>
+	<field name="DECPRECARTMANIF" class="java.lang.Integer"/>
+	<field name="DECPRECSEN" class="java.lang.String"/>
+	<field name="DECPRECUEMOA" class="java.lang.String"/>
+	<field name="DECQTECOMPLEMENT" class="java.math.BigDecimal"/>
+	<field name="DECQTEMERC" class="java.math.BigDecimal"/>
+	<field name="DECREFDECL" class="java.lang.String"/>
+	<field name="DECREGDOUANIER" class="java.lang.String"/>
+	<field name="DECREGFISCAL" class="java.lang.String"/>
+	<field name="DECSGSEXEMPTION" class="java.lang.String"/>
+	<field name="DECTYPEAPUREMENT" class="java.lang.String"/>
+	<field name="DECTYPEREGIME" class="java.lang.String"/>
+	<field name="DECTYPEVOIEDECL" class="java.lang.String"/>
+	<field name="DECTYPEVOIEDEST" class="java.lang.String"/>
+	<field name="DECVALDEVFOB" class="java.math.BigDecimal"/>
+	<field name="DECVALDOUANE" class="java.math.BigDecimal"/>
+	<field name="DECVILLEDECL" class="java.lang.String"/>
+	<field name="DECVILLEDESTINATAIRE" class="java.lang.String"/>
+	<field name="MANIFDATEARRIVEE" class="java.util.Date"/>
+	<field name="MANIFDATEEMB" class="java.util.Date"/>
+	<field name="MANIFMODETRANSPORT" class="java.lang.Integer"/>
+	<field name="MANIFMOYENTRANSPORT" class="java.lang.String"/>
+	<field name="RCCODECONTRIBUABLE" class="java.lang.String"/>
+	<field name="RCDESCIRCUITVISITE" class="java.lang.String"/>
+	<field name="RCLIBELLEAPUREMENT" class="java.lang.String"/>
+	<field name="RCLIBELLELIEUEMB" class="java.lang.String"/>
+	<field name="RCLIBELLEMODETRANS" class="java.lang.String"/>
+	<field name="RCLIBELLEREGIMEDOUANIER" class="java.lang.String"/>
+	<field name="RCLIBELLETARIF" class="java.lang.String"/>
+	<field name="RCLIBELLETYPEMANIF" class="java.lang.String"/>
+	<field name="RCNOMPPM" class="java.lang.String"/>
+	<field name="RCNOMVOIEPPM" class="java.lang.String"/>
+	<field name="RCNUMPPM" class="java.lang.String"/>
+	<field name="RCPRENOMPPM" class="java.lang.String"/>
+	<field name="RCRAISONSOCIALE" class="java.lang.String"/>
+	<field name="RCVILLEPPM" class="java.lang.String"/>
+	<pageHeader>
+		<band height="174">
+			<image>
+				<reportElement x="34" y="3" width="646" height="166"/>
+				<graphicElement/>
+				<imageExpression class="java.io.File"><![CDATA[new File ($P{ppath},"enteteDcl1.gif")]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="175"/>
+	</detail>
+</jasperReport>

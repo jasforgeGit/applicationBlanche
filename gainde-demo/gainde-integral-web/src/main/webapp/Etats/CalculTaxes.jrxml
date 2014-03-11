@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="CalculTaxes" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="575" leftMargin="0" rightMargin="20" topMargin="31" bottomMargin="31" scriptletClass="sn.com.douane.web.rc.sysEnv" resourceBundle="gainde2005web.config.resources.ApplicationResources">
+	<property name="com.jasperassistant.designer.Grid" value="false"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="11"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="11"/>
+	<property name="com.jasperassistant.designer.DataSource" value="dbds010"/>
+	<reportFont name="policeVariables" isDefault="false" fontName="sansserif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<reportFont name="policeLibelle" isDefault="false" fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<parameter name="pnumDec" class="java.lang.Integer"/>
+	<parameter name="pnumArtDec" class="java.lang.Integer"/>
+	<parameter name="panneeDec" class="java.lang.String"/>
+	<parameter name="pburEnregDec" class="java.lang.String"/>
+	<parameter name="pnumOrdreArticle" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT l.DECQUOTITENORM AS RCVALEURTAUX,l.DECCODETAXE AS RCCODETAXE, l.DECBASETAXELIQ, l.DECMTTAXELIQ
+FROM ADMINISTRATEUR.LIQUIDARTDECL l WHERE l.DECBUREAUENREGDEC = $P{pburEnregDec} AND l.DECNUMDEC = $P{pnumDec}
+AND l.DECNUMARTDEC =$P{pnumArtDec} AND l.DECANNEELIQUID = $P{panneeDec}]]>
+	</queryString>
+	<field name="DECBASETAXELIQ" class="java.math.BigDecimal"/>
+	<field name="DECMTTAXELIQ" class="java.math.BigDecimal"/>
+	<field name="RCCODETAXE" class="java.lang.String"/>
+	<field name="RCVALEURTAUX" class="java.math.BigDecimal"/>
+	<variable name="vMntTotalDec" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DECMTTAXELIQ}]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="50">
+			<rectangle>
+				<reportElement x="284" y="3" width="205" height="41"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="4" y="4" width="43" height="40"/>
+				<graphicElement pen="1Point"/>
+			</rectangle>
+			<textField>
+				<reportElement key="libTaxe" x="6" y="6" width="37" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.taxe}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="50" y="3" width="231" height="41"/>
+				<graphicElement/>
+			</rectangle>
+			<textField isBlankWhenNull="false">
+				<reportElement key="libArticle1" x="58" y="6" width="53" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.article} +" " +($P{REPORT_SCRIPTLET}).afficherNumArticleImpair($P{pnumOrdreArticle})]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="53" y="21" width="70" height="18"/>
+				<graphicElement/>
+			</rectangle>
+			<textField>
+				<reportElement key="libBaseTax1" x="59" y="23" width="44" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.baseTaxable}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="187" y="21" width="92" height="18"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="126" y="21" width="60" height="18"/>
+				<graphicElement/>
+			</rectangle>
+			<textField>
+				<reportElement key="libTaux1" x="127" y="23" width="57" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.taux}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libMontant1" x="201" y="23" width="71" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.montant}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="libArticle2" x="293" y="6" width="119" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.article}+ " "+($P{REPORT_SCRIPTLET}).afficherNumArticlePair($P{pnumOrdreArticle})]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="361" y="22" width="60" height="18"/>
+				<graphicElement/>
+			</rectangle>
+			<textField>
+				<reportElement key="libTaux2" x="362" y="23" width="57" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.taux}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="422" y="22" width="64" height="18"/>
+				<graphicElement/>
+			</rectangle>
+			<textField>
+				<reportElement key="libMontant2" x="436" y="23" width="47" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.montant}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="491" y="4" width="58" height="41"/>
+				<graphicElement/>
+			</rectangle>
+			<textField isBlankWhenNull="false">
+				<reportElement key="libDeclaration" x="492" y="6" width="57" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.declaration}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="288" y="22" width="70" height="18"/>
+				<graphicElement/>
+			</rectangle>
+			<textField>
+				<reportElement key="libBaseTax2" x="294" y="23" width="44" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.baseTaxable}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="11">
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfTaxe" x="10" y="-1" width="29" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{RCCODETAXE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfBaseTaxLiq" x="55" y="0" width="68" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr(($P{REPORT_SCRIPTLET}).afficherArticlePair($F{DECBASETAXELIQ},$P{pnumOrdreArticle}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfTaux1" x="132" y="0" width="53" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr(($P{REPORT_SCRIPTLET}).afficherArticlePair($F{RCVALEURTAUX},$P{pnumOrdreArticle}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfMntLiq" x="189" y="0" width="80" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr(($P{REPORT_SCRIPTLET}).afficherArticlePair($F{DECMTTAXELIQ},$P{pnumOrdreArticle}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfTotalTaxesLiqNormal" x="492" y="0" width="58" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr(
+($P{REPORT_SCRIPTLET}).calculMntTaxeLiqNormal(
+($P{REPORT_SCRIPTLET}).afficherArticlePair($F{DECMTTAXELIQ},$P{pnumOrdreArticle}),
+($P{REPORT_SCRIPTLET}).afficherArticleImpair($F{DECMTTAXELIQ},$P{pnumOrdreArticle})
+ ))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfBaseTaxLiq2" x="290" y="0" width="68" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr(($P{REPORT_SCRIPTLET}).afficherArticleImpair($F{DECBASETAXELIQ},$P{pnumOrdreArticle}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfTaux2" x="364" y="0" width="53" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr(($P{REPORT_SCRIPTLET}).afficherArticlePair($F{RCVALEURTAUX},$P{pnumOrdreArticle}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfMntLiq2" x="425" y="0" width="62" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr(($P{REPORT_SCRIPTLET}).afficherArticlePair($F{DECMTTAXELIQ},$P{pnumOrdreArticle}))]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

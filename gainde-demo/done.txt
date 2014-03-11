@@ -1,0 +1,17 @@
+- pom parent
+- pom ear
+- modification des caracteres bizarre
+- suppression de commons-validator du pom web
+- ajout de exclude xml-api dans jasperreport
+(-) ajout de hibernate-entitymanager + exclude xml api dans data-layer
+- ajout de api et delegate dans web pour tous les ejb
+- deplacement de constDeclaration.java dans rc-api
+- ajout de provided dans tous les appels javaee-api
+- ajout de provided dans servlet-api
+- suppression de spring dans acegisecurity
+- generation des manifest pour les ejb
+- ajout de hibernate entity manager
+- correction des business delegate avec le container websphere (context)
+- correction du service locator avec ejbreference jndi was
+- ajout des dependences necessaires pour le bon fonctionnement du profil : entity manager dans prod et ejb dans web 
+- fin   

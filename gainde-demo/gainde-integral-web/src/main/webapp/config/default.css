@@ -1,0 +1,2027 @@
+	/*/------------------------------------------------------------------\*/
+	/*|           A P P L I C A T I O N - S E R V E R S . C O M          |*/
+	/*|                      ( I M P R O V E . F R )                     |*/
+	/*|                                                                  |*/
+	/*| Skin          : d\u00e9faut (AppServersDefaultSkin.css)               |*/
+	/*| Compatibilit\u00e9 : 1.5.4.PPR                                        |*/
+	/*| Derni\u00e8re maj  : 20000629                                         |*/
+	/*|                                                                  |*/
+	/*\------------------------------------------------------------------/*/
+	/*/------------------------------------------------------------------\*/
+	/*|                                                                  |*/
+	/*|                      Configuration du BODY                       |*/
+	/*|                                                                  |*/
+	/*\------------------------------------------------------------------/*/
+BODY {
+	background-color: #FFFFFF;
+	color: #000000;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+} 
+
+	/*/------------------------------------------------------------------	\*/
+	/*|                                                                 			 |*/
+	/*|                          Barre de menu                        	   	|*/
+	/*|                                                                  			|*/
+	/*\------------------------------------------------------------------/*/
+.barremenu {
+	color: #004142;
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-weight: bold;
+}
+
+A .barremenu {
+	color: #004a00;
+	text-decoration: underline;;
+	font-family: arial;
+	font-size: 11px;
+	font-weight: bold;
+}
+.disabled{
+	background-color: #ededed;
+}
+
+A .barremenu :Visited {
+	color: #004a00;
+	text-decoration: none;
+}
+
+A .barremenu :Active {
+	color: #004a00;
+	text-decoration: none;
+}
+
+A .barremenu :Hover {
+	color: #004a00;
+	text-decoration: none;
+}
+
+	/*/------------------------------------------------------------------\*/
+	/*|                                                                 	 		|*/
+	/*|                         Description news                         	|*/
+	/*|                                                                  			|*/
+	/*\------------------------------------------------------------------/*/
+	/* Titre d'une news */
+.titrenews {
+	color: #CC0000;
+	background-color: #FFE787;
+	font-family: arial;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* Titre commentaire d'une news */
+.titrecommentaires {
+	color: #CC0000;
+	background-color: #FFE787;
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/* haut news (colonne \u00e0 droite)*/
+.colonnedroite { /* background-color : white; */
+	
+}
+
+/* Corps d'une news */
+.corpsnews {
+	font-family: verdana;
+	font-size: 12px;
+}
+
+/* Liens dans les news */
+A {
+	color: #004142;
+	text-decoration: none;;
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 9pt
+}
+
+A :Visited {
+	color: #004142;
+	text-decoration: none;
+}
+
+A :Active {
+	color: #004142;
+	text-decoration: none;
+}
+
+A :Hover {
+	color: #004142;
+	text-decoration: none;
+}
+
+/*/------------------------------------------------------------------\*/
+	/*|                                                                  |*/
+	/*|                      Carr\u00e9 Information News                      |*/
+	/*|                                                                  |*/
+	/*\------------------------------------------------------------------/*/
+	/* Ecriture et fond dans le carr\u00e9 quand non Lire plus et non comment\u00e9 */
+.infonews {
+	color: #555555;
+	background-color: #E7E8F1;
+	font-family: arial;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+/* Ecriture et fond dans le carr\u00e9 quand Lire plus ou comment\u00e9 */
+.infonewsactif {
+	font-family: arial;
+	font-size: 10px;
+	font-weight: bold;
+	color: #555555;
+	background-color: #FFE787;
+}
+
+/* Liens en non Lire plus et non comment\u00e9 */
+A .infonews {
+	color: #6489A0;
+	text-decoration: underline;
+}
+
+A .infonews :Visited {
+	color: #6489A0;
+	text-decoration: none;
+}
+
+A .infonews :Active {
+	color: #6489A0;
+	text-decoration: none;
+}
+
+A .infonews :Hover {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+/* Liens en Lire Plus ou comment\u00e9, sauf lien Commenter */
+A .infonewsactif {
+	color: #CC0000;
+	text-decoration: underline;
+}
+
+A .infonewsactif :Visited {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A .infonewsactif :Active {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+A .infonewsactif :Hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+/* Liens Commenter dans un carr\u00e9 Lire plus ou comment\u00e9 */
+A .infonewspassif {
+	color: #6489A0;
+	text-decoration: underline;
+}
+
+A .infonewspassif :Visited {
+	color: #6489A0;
+	text-decoration: none;
+}
+
+A .infonewspassif :Active {
+	color: #6489A0;
+	text-decoration: none;
+}
+
+A .infonewspassif :Hover {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+	/*/------------------------------------------------------------------	\*/
+	/*|                                                                  			|*/
+	/*|                  Page Tous les sujets (topics)                  	 |*/
+	/*|                                                                  			|*/
+	/*\------------------------------------------------------------------	/*/
+P .topics {
+	color: #336699;
+	background-color: #FFFFFF;
+	font-weight: bold;
+}
+
+H1 .titres {
+	color: #FFEC00;
+}
+
+	/*/------------------------------------------------------------------\*/
+	/*|                                                                  			|*/
+	/*|                        Configuration Struts                      	|*/
+	/*|                                                                 			 |*/
+	/*\------------------------------------------------------------------	/*/
+.MENU {
+	background-color: #E7E8F1;;
+	font-size: 10pt;
+	color: #004f00;
+	font-weight: bold;
+	font-family: sans-serif
+}
+
+P .FORM {
+	color: #FFFFF0;
+	font-family: verdana;
+	font-size: 16px;
+	text-align: center;
+}
+
+/***********************************************
+ * color of the thin line surrounding the form *
+ **********************************************/ 
+TABLE.FORM {
+	background-color: #d3dde2;
+	border: #336699;
+	border-width: 1px;
+	border-style: solid
+}
+
+/**************************************
+ * background color of the form title *
+ *************************************/
+TH.FORM {
+	color: #FFFFFF;
+	background-color: #336699;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+	font-size: 10pt;
+	font-family: sans-serif;
+}
+
+/********************************
+ * background color of the form *
+ *******************************/
+TD.FORM {
+	background-color: #f4f4f4;
+	font-size: 11px;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+/***
+TD.FORM {
+		background-color : #000000;
+		font-size: 11px;
+		color:#FFFFFF
+}****/ /*******************************
+ *  background color to use to *
+ *  display the errors         *
+ ******************************/
+TD.ERROR {
+	background-color: #CC0000;
+}
+
+/**
+ * Le style FORM servant aussi pour les listes, il faut rajouter ceci pour les listes triables.
+ */
+TH.FORM TR TD {
+	color: #FFFFFF;
+	background-color: #336699;
+	font-weight: bold;
+	font-family: verdana;
+}
+
+/******************************
+ *    class used to display   *
+ *    the input field labels  *
+ *****************************/
+.obligatoire {
+	font-family: Tahoma;
+	font-size: 12pt;
+	color: purple;;
+	font-weight: bold;
+	font-style: italic
+}
+
+.LABELLEFT {
+	font-family: verdana;
+	font-size: 12;
+	color: #336699;
+}
+
+SPAN.LABELLEFT {
+	
+}
+
+TH.LABELLEFT {
+	text-align: left;
+}
+
+.COMMENT {
+	color: #336699;
+	font-style: bold;
+	font-family: verdana;
+	text-align: center;
+}
+
+.TOPLINK {
+	font-style: verdana;
+	text-align: left;
+}
+
+/*******************************************
+ * class for the title of the subscription *
+ ******************************************/
+P.SUBSCRIPTION {
+	color: #336699;
+	font-family: arial;
+	font-weight: bold;
+	text-align: center;
+	font-size: 16px;
+}
+
+/********************************************************
+ * color of the thin line surrounding the subscriptions *
+ *******************************************************/
+TABLE.SUBSCRIPTION {
+	background-color: #336699;
+}
+
+/*************************
+ * class for the headers *
+ ************************/
+TH.SUBSCRIPTION {
+	color: #FFFFFF;
+	background-color: #336699;
+	font-weight: bold;
+}
+
+/*******************************
+ * class for the subscriptions *
+ ******************************/
+TD.SUBSCRIPTION {
+	color: #336699;
+	background-color: #FFFFFF;
+}
+
+.ongletMain {
+	BORDER-RIGHT: #336699 1px solid;
+	BORDER-TOP: medium none;
+	BORDER-LEFT: #336699 1px solid;
+	BORDER-BOTTOM: #336699 1px solid;
+	BACKGROUND-COLOR: #E5F2F4;
+	height: 100%;
+}
+
+.clsAction {
+	height: 100%;
+	width: 100%;
+}
+
+.ongletTextEna {
+	BORDER-RIGHT: #336699 1px solid;
+	BORDER-TOP: #336699 1px solid;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10px;
+	BORDER-LEFT: #336699 1px solid;
+	COLOR: white; /*#005386; */
+	BORDER-BOTTOM: medium none;
+	FONT-FAMILY: verdana;
+	BACKGROUND-COLOR: #008294;
+	TEXT-ALIGN: center;
+}
+
+.ongletTextDis {
+	BORDER-RIGHT: #336699 1px solid;
+	BORDER-TOP: #336699 1px solid;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10px;
+	BORDER-LEFT: #336699 1px solid;
+	COLOR: #008294;
+	BORDER-BOTTOM: #336699 1px solid;
+	FONT-FAMILY: verdana;
+	BACKGROUND-COLOR: #E5F2F4;
+	TEXT-ALIGN: center;
+}
+
+.ongletTextErr {
+	BORDER-RIGHT: #c5c5c5 1px solid;
+	BORDER-TOP: #c5c5c5 1px solid;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10px;
+	BORDER-LEFT: #c5c5c5 1px solid;
+	COLOR: #FFFFFF;
+	BORDER-BOTTOM: #80add6 2px solid;
+	FONT-FAMILY: verdana;
+	BACKGROUND-COLOR: #ED4F50;
+	TEXT-ALIGN: center;
+}
+
+.ongletMiddle {
+	BORDER-RIGHT: #336699 1px solid;
+	BORDER-TOP: medium none;
+	FONT-SIZE: 1px;
+	BORDER-LEFT: #336699 1px solid;
+	BORDER-BOTTOM: medium none;
+	BACKGROUND-COLOR: #EDF1F3;
+}
+
+.ongletSpace {
+	BORDER-BOTTOM: #336699 1px solid;
+}
+
+/**
+ * Calendar classes
+ */
+TD.CALENDRIER {
+	color: #336699;
+	background-color: #C2C2C2;
+	font-weight: bold;
+	text-align: center;
+	font-size: 10px;
+}
+
+A.CALENDRIER {
+	text-decoration: none;
+	font-size: 10px;
+	color: #336699;
+	//#000000;
+}
+
+.CALENDARBORDER {
+	background-color: #336699;
+	//#000000;
+}
+
+.CALENDARTITLE {
+	background-color: #336699;
+	//#
+	C9252C;
+}
+
+.CALENDARWEEK {
+	background-color: #FFFFFF;
+}
+
+.CALENDARWEEKEND {
+	background-color: #FFF4E5;
+}
+
+.CALENDARSELECTED {
+	background-color: #FF8F01;
+}
+
+/************************************
+ *         Datagrid styles          *
+ ************************************/
+TABLE.DATAGRID {
+	width:100%;
+}
+
+TH.DATAGRID {
+	color: #FFFFFF;
+	background-color: #008294;
+	font-weight: bold;
+	font-family: verdana;
+	font-size: 10pt;
+	text-align:center;
+}
+
+TABLE.DATAGRID TR TD {
+	font-family: verdana;
+	padding: 0px;
+}
+
+TR.DATAGRID {
+	background-color: transparent;
+}
+
+TR.DATAGRID2 {
+	background-color: transparent;
+}
+
+TABLE.DATAGRID TR TD INPUT {
+	width: 100%;
+}
+
+INPUT {
+	/* Commenter par Cyril 280707 */
+	/* Les champs ne sont plus affichés en majuscule */
+	 text-transform: uppercase; 
+	 border-radius: 5px;
+}
+
+TEXTAREA {
+	height: 1cm;
+}
+
+.radio {
+	cursor: pointer;
+	background-color:#e5f2f4;
+}
+
+.button {
+	text-decoration: blink;
+	padding-top: 2px;
+	padding-right: 10px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	width: auto;
+	cursor: pointer;
+	color: black;
+	font-style: normal;
+	text-transform: none;
+	font-variant: normal;
+	font-weight: bold;
+	height: auto;
+	border-color: #666666;
+	border-width: medium;
+	background-color: gray;
+	margin: auto;
+	vertical-align: middle;
+	text-align: center;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-style: solid;
+	border-right-style: solid;
+	clear: both
+}
+
+.bouton :hover {
+	color: #996699;
+	cursor: pointer;
+	text-decoration: none;
+	background-color: #FFFFFF
+}
+
+.button_check {
+	text-decoration: blink;
+	padding-top: 2px;
+	padding-right: 10px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	width: auto;
+	cursor: pointer;
+	color: black;
+	font-style: normal;
+	text-transform: none;
+	font-variant: normal;
+	font-weight: bold;
+	height: auto;
+	border-color: #666666;
+	border-width: thin;
+	background-color: gray;
+	margin: auto;
+	vertical-align: middle;
+	border-style: solid;
+	text-align: center;
+}
+
+.button_uncheck {
+	text-decoration: blink;
+	padding-top: 2px;
+	padding-right: 10px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	width: auto;
+	cursor: pointer;
+	color: black;
+	font-style: normal;
+	text-transform: none;
+	font-variant: normal;
+	font-weight: bold;
+	height: auto;
+	border-color: #666666;
+	border-width: thin;
+	background-color: gray;
+	margin: auto;
+	vertical-align: middle;
+	border-style: solid;
+	text-align: center;
+}
+
+.box_checked {
+	height: auto;
+	width: auto;
+	margin: auto;
+	border-width: thin;
+	border-style: groove
+}
+
+P.FORM2 {
+	color: #004080;
+	font-family: sans-serif;
+	font-size: 10pt;
+	text-align: center;
+	font-weight: bold;
+	font-style: normal;
+	background-color: #EDF1F3;
+}
+
+TABLE.FORM2 {
+	background-color: #EDF1F3;
+	border: #000000;
+	border-width: 1px;
+	border-style: solid;	
+}
+
+TABLE.FORM3 {
+	background-color: #EDF1F3;
+	border: #000000;
+	border-width: 1px;
+	border-style: solid
+}
+
+TH.FORM2 {
+	color: black;
+	background-color: #73B6CE;
+	font-weight: bold;
+	font-style: normal;
+	text-align: center;
+	font-size: 8pt;
+	font-family: sans-serif;
+	vertical-align: middle;
+}
+
+TH.FORM3 {
+	color: black;
+	background-color: #73B6CE;
+	font-weight: bold;
+	font-style: normal;
+	text-align: center;
+	font-size: 8pt;
+}
+
+TABLE.FORM2 TD.FORM2 {
+	background-color: white;
+	font-size: 8pt;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+TABLE.FORM2 TD.FORM3 {
+	background-color: #E5F2F4;
+	font-size: 8pt;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+.buttonBar {
+	font-size: 10pt;
+	color: white;
+	font-weight: bolder;
+	background-color: #004142;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #004a00;
+	width: 100px;	
+	text-align: center;	
+	font-family: sans-serif;
+	text-transform: capitalize;
+}
+
+.button2Bar {
+	font-size: 9pt;
+	color: white;
+	font-weight: bolder;
+	background-color: #004142;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #004a00;
+	width: 140px;
+	height: 100%;
+	text-align: center;	
+	font-family: sans-serif;
+	text-transform: capitalize;
+}
+
+.HID {
+	visibility: hidden
+}
+
+TABLE.SECTION {
+	background-color: #E5F2F4;
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+	border-color: #004040;
+	margin: 10px 0px 0px 0px;	
+}
+
+TABLE.SECTION TH {
+	height: 22px;
+	text-align: left;
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-weight: 400;
+	width: 20%;
+}
+
+TABLE.SECTION TD {
+	text-align: right;
+	height: 20px;
+}
+
+TABLE.SECTION INPUT {
+	text-align: center;
+	height: 18px;
+	margin-right: 5px;
+	width: 140px;
+	font-size: 9pt;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #a3a3a3;
+	background-color: white;
+}
+
+TABLE.SECTION TH.SUBSECTION {
+	margin-left: 15px;
+	height: 22px;
+	text-align: right;
+	font-family: sans-serif;
+	font-size: 8pt;
+	color: #804040;
+}
+
+TABLE.SECTION SPAN {
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	color: black;
+	font-weight: 500;
+	margin-left: 15px;
+	height: 20px;
+}
+
+TABLE.SECTION TD.ENTETE {
+	text-align: center;;
+	height: 0pt;
+	background-color: #008294;
+	color: white;;
+	font-weight: bold
+}
+
+TABLE.SECTION TH.ENTETE {
+	text-align: center;
+	height: 8pt;
+	background-color: #008294;
+	color: white;
+	font-size: 9pt;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+TABLE.SECTION TD.HEAD {
+	text-align: center;;
+	height: 8pt;
+	background-color: #73B6CE;
+	color: black;
+	font-size: 9pT;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+
+TABLE.SECTION TH.HEAD {
+	text-align: center;
+	height: 8pt;
+	background-color: #73B6CE;
+	color: black;
+	font-size: 9pT;
+	font-weight: bold;
+	font-family: sans-serif;
+} 
+/**************
+******Style pour article déclaration*****
+***************/
+TABLE.SECTION TD.MINI_ENTETE {
+	text-align: center;;
+	height: 8pt;
+	background-color: #73B6CE;
+	color: black;
+	font-weight: bold
+}
+
+TABLE.SECTION TH.MINI_ENTETE {
+	text-align: center;;
+	height: 8pt;
+	background-color: #73B6CE;
+	color: black;
+	font-size: 8pt;;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+
+/**************
+****** FIN Style pour article déclaration*****
+***************/
+TABLE.SECTION TD.SPACE {
+	text-align: center;;
+	background-color: #E5F2F4;
+	height: 7px;
+}
+
+TABLE.SECTION TH.SPACE {
+	text-align: center;;
+	background-color: 
+#E5F2F4;
+	height: 7px;
+}
+
+.SPACING {
+	height: 5px;
+}
+
+TABLE.SECTION SELECT {
+	width: 140px;
+	margin-right: 5px;
+	height: 18px;
+	font-size: 8pt;
+	border-style: solid;
+	border-width: 1px;
+	border-color: silver;
+}
+
+LI {
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	font-weight: bold;
+	color: black;
+	list-style: none; 
+	background-color: #AFEEEE;
+	
+}
+.fonc {
+	font-family: sans-serif;
+	font-size: 10pt;
+	font-style: normal;
+	color: #6D071A;
+	font-weight: bold;
+}
+.SECTION2 {
+	margin-right: 5px;
+	margin-left: 15px
+}
+
+.SECTION3 {
+	margin-right: 5px;
+	margin-left: 53px
+}
+
+TABLE.SECTION TH.MESSAGE {
+	width: 20%;
+	font-size: 8pt;
+	margin-right: 0px;
+	margin-left: 0px;
+	text-align: left;
+	font-family: sans-serif;
+}
+TABLE.SECTION2 TH.LIBELLE_TAB{
+	width: 60%;
+	font-size: 8pt;
+	margin-right: 0px;
+	margin-left: 0px;
+	font-family: sans-serif;
+	font-weight: 400;
+	text-align: left;
+}
+TABLE.SECTION2 TH.MESSAGERECAP {
+	color: black;
+	font-size: 8pt;
+	font-style: normal;
+	text-align: center;
+	font-family: sans-serif
+}
+TABLE.SECTION2 TH {
+	color: black;
+	font-size: 8pt;
+	font-style: normal;
+	text-align: left;
+	font-family: sans-serif;
+	font-weight: 400;;
+	margin-left: 0px
+}
+
+/**************
+******Style Message pour Déclaration*****
+***************/
+TABLE.SECTION TH.MESSAGE_CENTER {
+	width: 60%;
+	font-size: 8pt;
+	margin-right: 0px;
+	margin-left: 0px;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+TABLE.SECTION TH.MESSAGE_BOLD {
+	width: 60%;
+	font-size: 8pt;
+	margin-right: 0px;
+	margin-left: 0px;
+	font-weight: bold;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+TABLE.SECTION TH.MESSAGE_LEFT {
+	width: 60%;
+	font-size: 8pt;
+	margin-right: 0px;
+	margin-left: 0px;
+	text-align: left;;
+	font-family: verdana;
+}
+
+/**************
+******style NUM_manifAnnee*****
+***************/
+TABLE.SECTION TH.NUM_manifAnnee {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION SPAN.NUM_manifAnnee {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.NUM_manifAnnee {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.NUM_manifAnnee {
+	width: 35px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+/**************
+******style TNUM_manifCodeBur*****
+***************/
+TABLE.SECTION TH.TNUM_manifCodeBur {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px
+}
+
+TABLE.SECTION SPAN.TNUM_manifCodeBur {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.TNUM_manifCodeBur {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.TNUM_manifCodeBur {
+	width: 35px;
+	margin-right: 0px;
+	margin-left: 2px;
+}
+
+/**************
+******style TNUM_manifNumSeq*****
+***************/
+TABLE.SECTION TH.TNUM_manifNumSeq {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION SPAN.TNUM_manifNumSeq {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.TNUM_manifNumSeq {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.TNUM_manifNumSeq {
+	width: 55px;
+	margin-right: 0px;
+	margin-left: 2px;
+}
+
+/**************
+******style inputCodeFunction*****
+***************/
+TABLE.SECTION TH.inputCodeFunction {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION SPAN.inputCodeFunction {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.inputCodeFunction {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.inputCodeFunction {
+	width: 42px;
+	margin-right: 0px;
+	margin-left: 100px;
+}
+
+/**************
+******style inputLibFunction*****
+***************/
+TABLE.SECTION TH.inputLibFunction {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION SPAN.inputLibFunction {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.inputLibFunction {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.inputLibFunction {
+	width: 155px;
+	margin-right: 19px;
+	margin-left: 2px;
+}
+
+/**************
+******style TNUM_numArticle*****
+***************/
+TABLE.SECTION TH.TNUM_numArticle {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION SPAN.TNUM_numArticle {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.TNUM_numArticle {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.TNUM_numArticle {
+	width: 41px;
+	margin-right: 0px;
+	margin-left: 2px;
+}
+
+/**************
+******style NUM_decAnAutImp*****
+***************/
+TABLE.SECTION TH.NUM_decAnAutImp {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION SPAN.NUM_decAnAutImp {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.NUM_decAnAutImp {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.NUM_decAnAutImp {
+	width: 66px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+/**************
+******style TNUM_decNumAutImp*****
+***************/
+TABLE.SECTION TH.TNUM_decNumAutImp {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION SPAN.TNUM_decNumAutImp {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.TNUM_decNumAutImp {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.TNUM_decNumAutImp {
+	width: 72px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+/**************
+******style checkBoxArticle*****
+***************/
+TABLE.SECTION TH.checkBoxArticle {
+	margin-right: 0px;
+	width: 10 px;
+}
+
+TABLE.SECTION SPAN.checkBoxArticle {
+	text-align: right;
+}
+
+TABLE.SECTION TD.checkBoxArticle {
+	margin-right: 0px;
+	width: 50 px;
+	background-color:#E5F2F4;
+	border-color: #E5F2F4; 
+}
+
+TABLE.SECTION INPUT.checkBoxArticle {
+	margin-left: 0px;
+	align: center;
+	background-color:#E5F2F4;
+	border-color: #E5F2F4; 
+}
+
+P {
+	font-size: 8pt;
+	background-color: #ffffa4;
+	font-weight: bold;
+	font-style: normal;
+	font-family: sans-serif;
+	vertical-align: bottom;
+}
+
+.FIELD {
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	color: red;
+	font-weight: bold;
+}
+
+.messageinfo {
+	font-family: monospace;
+	font-weight: 400;
+	text-align: right;
+	font-style: normal;
+	font-size: 11pt;;
+	margin-right: 0px
+}
+
+.field1 {
+	margin-right: 0px;
+	width: 45px;
+}
+
+TABLE.SECTION INPUT.field1 {
+	width: 44px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+.field2 {
+	width: 45px;
+}
+
+.field4 {
+	width: 45px;
+}
+
+.messageCenter {
+	text-align: center;
+	color: #804040;
+}
+TABLE.messageEntete {
+	text-align: center;
+	font-weight: bold;
+	color: #7B0052;
+}
+/*********SAISIE CONTENEUR : PANEL CONTAINER*******/
+TABLE.PANELCONTAINER{
+	background-color: #E5F2F4;
+	border-width: 1px;
+	border-style: solid;;
+	width: 100%;
+	border-color: #004040;
+	margin: 0px;
+	valign: top;
+}
+
+
+TABLE.PANELCONTAINER TH{
+	height: 22px;
+	text-align: left;
+	font-family: sans-serif;
+	font-size: 9pt;
+		
+}
+
+TABLE.PANELCONTAINER INPUT{
+	text-align: center;
+	margin-left: 5px;
+	height: 18px;
+	font-size: 9pt;
+	border-style: solid;
+	border-width: 1px; 
+	border-color: #a3a3a3;
+	background-color: white;
+}
+
+TABLE.PANELCONTAINER SPAN {
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	color: black;
+	font-weight: 500;
+	margin-left: 15px;
+	height: 20px;
+}
+
+TABLE.PANELCONTAINER TD{
+	height: 22px;
+	text-align: left;
+}
+TABLE.PANELCONTAINER TH SPAN{
+	width: 120px;
+	height: 22px;
+	text-align: left;
+	font-family: sans-serif;
+	font-size: 8pt;
+}
+
+TABLE.PANELCONTAINER TD.container {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.PANELCONTAINER INPUT.container {
+	width: 200px;
+	margin-right: 4px;
+	margin-left: 2px;
+}
+TABLE.PANELCONTAINER TH.deux {
+	margin-right: 0px;
+	margin-left: 4px;
+}
+TABLE.PANELCONTAINER TD.deux {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.PANELCONTAINER INPUT.deux {
+	width: 77px;
+	margin-right: 0px;
+	margin-left: 2px;
+}
+/****    FIN PANEL CONTAINER    ****/
+TABLE.SECTION SPAN.recevab {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.recevab {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.recevab {
+	width: 250px;
+	margin-right: 0px;
+	margin-left: 2px;
+}
+
+TABLE.SECTION2 TD.modedec {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION2 INPUT.modedec {
+	width: 300px;
+	margin-right: 4px;
+	margin-left: 2px;
+}
+
+TABLE.SECTION SPAN.deux {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+TABLE.SECTION TH.deux {
+	margin-right: 0px;
+	margin-left: 4px;
+}
+TABLE.SECTION TD.deux {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.deux {
+	width: 65px;
+	margin-right: 0px;
+	margin-left: 2px;
+}
+
+TABLE.SECTION SPAN.quatre {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.quatre {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.quatre {
+	width: 33px;
+	margin-right: 0px;
+	margin-left: 2px;
+}
+
+/**************
+******style trois zone text*****
+***************/
+TABLE.SECTION TH.trois {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION SPAN.trois {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.trois {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.trois {
+	width: 45px;
+	margin-right: 0px;
+	margin-left: 2px;
+}
+
+/**************
+******style zone num article pour quatre zones de texte utilisé ds sommier consultation*****
+***************/
+TABLE.SECTION TH.numartquatre {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION SPAN.numartquatre {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION TD.numartquatre {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.SECTION INPUT.numartquatre {
+	width: 30px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+.value {
+	font-weight: normal;
+	font-style: normal;
+	font-family: sans-serif;	
+}
+TABLE.FORM2 TH.collectiontitle {
+	color      : black;
+	background-color : #73B6CE;
+	font-weight: bold;
+	font-style : normal;
+	font-size: 8pt;
+	font-family: sans-serif;
+	align: center;
+    text-align: center;
+    white-space: nowrap;    
+}
+TABLE.FORM2 TH.FORM2 {
+	color      : black;
+	background-color : #73B6CE;
+	font-weight: bold;
+	font-style : normal;
+	font-size: 8pt;
+	font-family: sans-serif;
+	align: center;
+    text-align: center;
+    white-space: nowrap;    
+}
+
+table.detail {
+	border: #000000;
+	border-width: 1px;
+	border-style: solid;;
+	padding-bottom: 1px;
+	padding-top: 1px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+table.detail INPUT {
+	text-align: center;
+	height: 18px;
+	width: 100px;
+	font-size: 8pt;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #a3a3a3;;
+	background-color: white;
+}
+table.detail input.size_50_px{
+	width : 50px;
+}
+
+table.detail TH {
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+}
+table.detail span {
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+}
+table.detail TD {
+	padding : 1px 2px 1px 2px;
+	height: 22px;
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+}
+table.detail TH.header{
+	background-color: #008294;
+	text-align : center;
+	font-weight: bold;
+	color : white;
+}
+table.header TH TD SPAN {
+	background-color: #008294;
+	text-align : center;
+	font-weight: bold;
+	color : white;
+	font-family: sans-serif;
+	font-size: 8pt;
+}
+TABLE.FORM4 {		
+		background-color : #E5F2F4;
+		border: #000000;
+		border-width: 0px;
+		text-align: left;		
+}
+TH.FORM4 {
+		color : black;
+		background-color : #E5F2F4;
+		font-weight: bold;
+		font-style : normal;
+		text-align: left;
+		font-size: 10pt;
+		font-family: sans-serif;
+}
+TABLE.FORM4 TD.FORM4 {
+		background-color : white;
+		font-size: 11px;
+		text-align:left;
+		font-family : sans-serif;
+}
+.SECTION4{
+	margin-right: 0px;
+	margin-left: 0px;
+	vertical-align: top;
+}
+TABLE.SECTION4{
+		background-color: #E5F2F4;
+		border-width: 0px;
+	width: 100%;
+	border-color: #004040;
+	margin: 0px;
+}
+
+.FORMSWAP{
+	font-family : sans-serif;
+	font-size: 11px;
+	text-align: center;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+
+/*********************************************************************/
+/********Ressources communes*********************************/
+/*********************************************************************/
+TABLE.PANEL{
+	background-color: transparent;
+	border-width: 0px;
+	border-style: solid;
+	width: 100%;
+	border-color: transparent;
+	margin: 0px;
+}
+
+TABLE.PANEL TH{
+	height: 22px;
+	text-align: left;
+	font-family: sans-serif;
+	font-size: 9pt;
+	width: 20%;	
+}
+
+TABLE.PANEL INPUT{
+	text-align: center;
+	margin-left: 0px;
+	height: 18px;
+	font-size: 9pt;
+	border-style: solid;
+	border-width: 1px; 
+	border-color: #a3a3a3;;
+	background-color: white;
+}
+TABLE.PANEL TD{
+	height: 22px;
+	text-align: left;
+	width: 80%;
+}
+
+TABLE.PANEL TH SPAN{
+	width: 120px;
+	height: 22px;
+	text-align: left;
+	font-family: sans-serif;
+	font-size: 8pt;
+}
+
+TABLE.PANEL INPUT.input100{	
+	width: 100px;	
+}
+TABLE.PANEL INPUT.input200{	
+	width: 200px;	
+}
+TABLE.PANEL INPUT.input300{	
+	width: 300px;	
+}
+TABLE.PANEL INPUT.input400{	
+	width: 400px;	
+}
+TABLE.PANEL INPUT.input500{	
+	width: 500px;	
+}
+TABLE.PANEL INPUT.input660{	
+	width: 500px;	
+}
+TABLE.PANEL TH.input500{	
+	width: 120px;	
+}
+TABLE.PANEL TH.input660{	
+	width: 120px;	
+}
+TABLE.PANEL SELECT.input250{	
+	width: 250px;	
+}
+TABLE.PANEL INPUT.input600{	
+	width: 600px;	
+}
+TABLE.PANEL TH.input600{	
+	width: 120px;	
+}
+TABLE.PANEL INPUT.input700{	
+	width: 700px;	
+}
+TABLE.PANEL TH.input700{	
+	width: 120px;	
+}
+TABLE.PANEL INPUT.input800{	
+	width: 800px;	
+}
+TABLE.PANEL TH.input800{	
+	width: 120px;	
+}
+TABLE.PANEL TEXTAREA.textArea{	
+	width: 700px;
+	height: 60px;
+}
+/*TABLE.SECTION INPUT.buttonPpm{
+	font-size: 8pt;
+	color: white;
+	font-weight: bolder;
+	background-color: #004142;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #004a00;
+	width: 250px;
+	text-align: center;;
+	height: 90%;;
+	font-family: sans-serif;;
+	text-transform: capitalize;
+}*/
+TABLE.SECTION INPUT.input100{	
+	width: 100px;	
+}
+TABLE.SECTION INPUT.input200{	
+	width: 200px;	
+}
+TABLE.SECTION INPUT.input300{	
+	width: 300px;	
+}
+TABLE.SECTION INPUT.input400{	
+	width: 400px;	
+}
+TABLE.SECTION INPUT.margin400{
+	width: 400px;
+	margin-left: 47px;
+}
+TABLE.SECTION INPUT.input500{	
+	width: 500px;	
+}
+TABLE.SECTION INPUT.input660{	
+	width: 660px;	
+}
+TABLE.SECTION SELECT.input250{	
+	width: 250px;	
+}
+TABLE.SECTION INPUT.input600{	
+	width: 740px;	
+}
+TABLE.SECTION TH.input600{	
+	width: 117px;	
+}
+TABLE.SECTION INPUT.Libelle1{	
+	width: 747px;	
+}
+TABLE.SECTION TH.Libelle1{	
+	width: 126px;	
+}
+TABLE.SECTION INPUT.scorelib{	
+	width: 758px;	
+}
+TABLE.SECTION TH.scorelib{	
+	width: 88px;	
+}
+TABLE.SECTION INPUT.input800{	
+	width: 754px;	
+}
+TABLE.SECTION TH.input800{	
+	width: 85px;	
+}
+TABLE.PANEL INPUT.marginZero{
+	margin-left: 10px;
+}
+TABLE.PANEL INPUT.marginLong{
+	width: 600px;
+	margin-left: 10px;
+}
+TABLE.SECTION INPUT.buttonBar{
+	font-size: 8pt;
+	color: white;
+	font-weight: bolder;
+	background-color: #004142;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #004a00;
+	width: 150px;
+	text-align: center;;
+	height: 80%;;
+	font-family: sans-serif;;
+	text-transform: capitalize;
+}
+
+/***** zone de texte page de login******/
+.buttonBarLogin{
+	font-size: 10px;
+	color: white;
+	font-weight: bolder;
+	background-color: #004142;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #004a00;
+	width: 80px;
+	text-align: center;
+	height: 80%;
+	font-family: verdana;
+}
+
+.textLogin{
+	font-size: 11px;
+	font-family: verdana;
+}
+
+.textLogin{
+	font-size: 11px;
+	width: 100px;
+	font-family: verdana;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #a3a3a3;;
+	background-color: white;
+}
+
+INPUT.foreignKey{
+	text-transform: uppercase;
+}
+
+/** GESTION DU PANNEAU CHAMP MARQUES COLIS */
+TABLE.PANNEAU {
+	background-color: #E5F2F4;
+	border-width: 0px;
+	border-style: solid;
+	width: 100%;
+	border-color: #004040;
+	margin: 0px;
+}
+
+TABLE.PANNEAU TH {
+	height: 22px;
+	text-align: left;
+	font-family: sans-serif;
+	font-size: 8pt;
+	font-weight: 400;
+}
+
+TABLE.PANNEAU TD {
+	text-align: right;
+	height: 20px;
+}
+
+
+TABLE.PANNEAU TD.SPACE {
+	text-align: center;
+	background-color: #E5F2F4;
+	height: 7px;
+}
+
+TABLE.PANNEAU TH.SPACE {
+	text-align: center;
+	background-color: #E5F2F4;
+	height: 7px;
+}
+TABLE.PANNEAU INPUT {
+	text-align: center;
+	height: 18px;
+	margin-right: 5px;
+	width: 140px;
+	font-size: 9pt;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #a3a3a3;
+	background-color: white;
+}
+
+TABLE.PANNEAU TH.ENTETE {
+	text-align: center;
+	height: 8pt;
+	background-color: #008294;
+	color: white;
+	font-size: 9pt;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+
+TABLE.PANNEAU TH.MINI_ENTETE {
+	text-align: center;
+	height: 8pt;
+	background-color: #73B6CE;
+	color: black;
+	font-size: 8pt;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+
+TABLE.PANNEAU TH.MESSAGE {
+	width: 20%;
+	font-size: 8pt;
+	margin-right: 0px;
+	margin-left: 0px;
+	text-align: left;
+	font-family: sans-serif;
+}
+
+TABLE.PANNEAU TH.MESSAGE_CENTER {
+	width: 60%;
+	font-size: 8pt;
+	margin-right: 0px;
+	margin-left: 0px;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+TABLE.PANNEAU TH.MESSAGE_BOLD {
+	width: 60%;
+	font-size: 8pt;
+	margin-right: 0px;
+	margin-left: 0px;
+	font-weight: bold;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+TABLE.PANNEAU TH.MESSAGE_LEFT {
+	width: 60%;
+	font-size: 8pt;
+	margin-right: 0px;
+	margin-left: 0px;
+	text-align: left;
+	font-family: verdana;
+}
+
+TABLE.PANNEAU SELECT {
+	width: 140px;
+	margin-right: 5px;
+	height: 18px;
+	font-size: 8pt;
+	border-style: solid;
+	border-width: 1px;
+	border-color: silver;
+}
+
+TABLE.PANNEAU TH.NUM_manifAnnee {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.PANNEAU SPAN.NUM_manifAnnee {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.PANNEAU TD.NUM_manifAnnee {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.PANNEAU INPUT.NUM_manifAnnee {
+	width: 35px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.PANNEAU TH.TNUM_manifCodeBur {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px
+}
+
+TABLE.PANNEAU SPAN.TNUM_manifCodeBur {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.PANNEAU TD.TNUM_manifCodeBur {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.PANNEAU INPUT.TNUM_manifCodeBur {
+	width: 35px;
+	margin-right: 0px;
+	margin-left: 2px;
+}
+
+TABLE.PANNEAU TH.TNUM_manifNumSeq {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.PANNEAU SPAN.TNUM_manifNumSeq {
+	width: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.PANNEAU TD.TNUM_manifNumSeq {
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+TABLE.PANNEAU INPUT.TNUM_manifNumSeq {
+	width: 55px;
+	margin-right: 0px;
+	margin-left: 2px;
+}
+
+TABLE.PANNEAU INPUT.margin400MN{
+	width: 650px;
+	margin-left: 55px;
+}
+
+TABLE.PANNEAU INPUT.margin400DC{
+	width: 650px;
+	margin-left: 61px;
+}
+
+TABLE.PANNEAU INPUT.margin400LT{
+	width: 650px;
+	margin-left: 111px;
+}
+
+input{
+	font-size: 10px;
+	font-family: verdana;
+}
+a.menulink{
+color: #004142;
+font-weight: bold;
+font-family: sans-serif;
+font-size: 9pt
+}
+.text {
+	font-size: 10px;
+	font-family: verdana;
+	color:black;
+}
+.buttonTransfer {
+  font-size: 9pt;
+  color: white;
+  font-weight: bolder;
+  background-color: #004142;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #004a00;
+  text-align: center;
+  width: 50px;
+  height: 30px;	
+  font-family: sans-serif;
+  text-transform: capitalize;
+  cursor:pointer		
+}
+.ui-jqgrid .ui-jqgrid-htable th {font-size: 8pt;font-weight:bold;font-family: sans-serif;}
+.ui-jqgrid .ui-pg-table {font-size:11px;font-family: sans-serif;}
+.ui-jqgrid .ui-jqgrid-title {float: center !important;}
+.ui-jqgrid tr.ui-row-ltr td {text-align:center;font-size:10px;}
+.ui-jqgrid .ui-jqgrid-bdiv {padding-bottom: 15px !important;}
+.errorMessage {margin-bottom:0px;padding: 0px;}
+
+  
+.ombrage {
+  -moz-box-shadow: 10px 10px 5px #888888; 
+  -webkit-box-shadow: 10px 10px 5px #888888; 
+  box-shadow: 10px 10px 5px #888888; 
+} 
+
+ul.errorMessage li{
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:13px;
+	border: 1px solid;
+	border-color: #00529B;
+	margin: 1px 0px;
+	padding:1px 1px 1px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	color: #00529B;
+	background-color: #FFFF66;
+	background-image: url('../config/error.png');
+	border-radius: 5px;
+}
+
+ul.actionMessage li{
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:13px;
+	border: 1px solid;
+	border-color: #00529B;
+	margin: 1px 0px;
+	padding:1px 1px 1px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	color: #00529B;
+	background-color: #FFFF66;
+	background-image: url('../config/success.png');
+	border-radius: 5px;
+}

@@ -1,0 +1,81 @@
+<project>
+
+	<!-- prepare a temporary directory in which the war file is expanded and obfuscated -->
+	<tempfile property="unwar.dir" destdir="${java.io.tmpdir}" deleteonexit="yes"/>
+	<mkdir dir="${unwar.dir}"/>
+	<unzip src="target/gainde-integral-ear.ear" dest="${unwar.dir}"/>
+	 
+	<!-- create a jar of gainde classes (required by yguard) for obfuscation -->
+	<jar destfile="${unwar.dir}/gainde.jar" whenempty="fail">
+	    <zipfileset dir="${unwar.dir}/lib"/>
+	</jar>
+	
+	 
+	<!-- create a fileset of internal libraries to be obfuscated -->
+	<fileset dir="${unwar.dir}" id="internal.lib.set">
+	    <include name="gainde-integral-dec-ejb.jar"/>
+	    <include name="gainde-integral-douane-ejb.jar"/>
+	    <include name="gainde-integral-man-ejb.jar"/>
+	    <include name="gainde-integral-rc-ejb.jar"/>
+	    <include name="gainde-integral-tresor-ejb.jar"/>
+	</fileset>
+	 
+	<!-- move the internal libraries to a temporary directory and make a fileset out of them -->
+	<tempfile property="obfuscation.dir" destDir="${java.io.tmpdir}" deleteonexit="yes"/>
+	<mkdir dir="${obfuscation.dir}"/>
+	<move todir="${obfuscation.dir}">
+	    <fileset refid="internal.lib.set"/>
+	</move>
+ 
+	<!-- make a fileset of all jars to be obfuscated -->
+	<fileset dir="${obfuscation.dir}" includes="*.jar" id="in-out.set"/>
+	 
+	<!-- make a fileset of the remaining libraries, these are not obfuscated -->
+	<path id="external.lib.path">
+	    <fileset dir="${unwar.dir}/lib" includes="*.jar"/>
+	    <fileset dir="lib" includes="*.jar"/>
+	</path>
+	
+	<echo message="unwar.directory: ${unwar.dir}" />
+	<echo message="obfuscation.dir: ${obfuscation.dir}" />
+	
+	<taskdef name="yguard"
+	    classname="com.yworks.yguard.YGuardTask"
+	    classpath="ref/yguard.jar"/>
+	 
+	<yguard>
+	    <inoutpairs>
+		<!-- these filesets are inputs to be obfuscated -->
+		<fileset refid="in-out.set"/>
+	    </inoutpairs>
+	    <externalclasses refid="external.lib.path"/>  <!-- external libs, not obfuscated -->
+	    <rename>
+		<keep>
+		    <!-- classes, packages, methods, and fields which should not obfuscated are specified here -->
+		</keep>
+	    </rename>
+	</yguard>
+	 
+	<!-- move our newly obfuscated classes back into the lib area -->
+	<move todir="${unwar.dir}">
+	    <fileset dir="${obfuscation.dir}" includes="*_obf.jar"/>
+	</move>
+	 
+	<!-- renommer les jar offusqué en supprimnt l'extension _obf -->
+	 <move todir="${unwar.dir}" includeemptydirs="false">
+	    <fileset dir="${unwar.dir}"/>
+	    <mapper type="glob" from="*_obf.jar" to="*.jar"/>
+	  </move>
+	
+	
+	<unzip dest="${unwar.dir}/lib" src="${unwar.dir}/gainde.jar">
+	</unzip>
+	<delete>
+	    <fileset dir="${unwar.dir}" includes="gainde.jar"/>
+	</delete>
+
+	<!-- rebuild the ear file -->
+	<ear  appxml="${unwar.dir}/META-INF/application.xml" destfile="dist/gainde-integral-ear.ear" basedir="${unwar.dir}"/>
+
+	
+</project>

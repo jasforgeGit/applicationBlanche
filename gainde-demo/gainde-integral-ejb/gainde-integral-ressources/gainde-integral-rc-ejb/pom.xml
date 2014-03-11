@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>sn.com.douane.gainde.ejb</groupId>
+	<artifactId>gainde-integral-rc-ejb</artifactId>
+	<packaging>ejb</packaging>
+	<name>gainde-integral-rc-ejb</name>
+	<version>1.0</version>
+	<parent>
+		<groupId>sn.com.douane.gainde.ejb</groupId>
+		<artifactId>gainde-integral-ressources</artifactId>
+		<version>1.0</version>
+	</parent>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>	
+
+	<dependencies>
+
+		<dependency>
+			<groupId>sn.com.douane.gainde.ejb</groupId>
+			<artifactId>gainde-integral-data-layer</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0-3</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>openejb-core-hibernate</artifactId>
+			<version>4.5.1</version>
+			<scope>test</scope>
+			<type>pom</type>
+		</dependency>
+            
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb-j5</artifactId>
+			<version>2.2.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>sn.com.douane.gainde.ejb</groupId>
+			<artifactId>gainde-integral-rc-delegate</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>sn.com.douane.gainde.configuration</groupId>
+			<artifactId>gainde-integral-configuration</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<configuration>
+					<ejbVersion>3.0</ejbVersion>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

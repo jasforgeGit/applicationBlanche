@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="Declaration" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" scriptletClass="sn.com.douane.web.rc.sysEnv" resourceBundle="gainde2005web.config.resources.ApplicationResources" whenResourceMissingType="Key">
+	<property name="com.jasperassistant.designer.Grid" value="false"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="dbds010"/>
+	<property name="com.jasperassistant.designer.VGuides.Page Header" value="77"/>
+	<property name="com.jasperassistant.designer.VGuides.ArticleHeader" value="161"/>
+	<property name="com.jasperassistant.designer.VGuides.ArticleFooter" value="30"/>
+	<property name="com.jasperassistant.designer.HGuides" value="298"/>
+	<reportFont name="policeLibelle" isDefault="false" fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="true" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<reportFont name="policeVariables" isDefault="false" fontName="sansserif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<style name="Style_1" isDefault="false" backcolor="#008000"/>
+	<parameter name="ppath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\workspace\\GAINDE2005Web\\WebContent\\Etats\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="panneeDec" class="java.lang.String"/>
+	<parameter name="pnumDec" class="java.lang.Integer"/>
+	<parameter name="pburEnregDec" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT d.DECANNEEENREGDEC,d.DECBURENREGDEC, d.DECDATEENREGDEC,d.DECNUMDECLARATION DECNUMDECLARATION,d.DECDOSSIER, d.DECNUMREPERTOIRE, d.DECREFDECL, d.DECNBREARTICLES, d.DECBURDOUANE, d.DECBURFRONTIERE, d.DECMODEDECLARATION,  d.DECNOMDECLARANT,d.DECVILLEDECL, d.DECBPDECLARANT, d.DECTYPEVOIEDECL, d.DECNOMVOIEDECL, d.DECCODEPPMDEC, d.DECTYPEAPUREMENT, d.DECCODEAGREE, d.DECPAYSPROVENANCE, d.DECCODEDESTINATAIRE, d.DECNOMDESTINATAIRE, d.DECNUMVOIEDEST, d.DECNOMVOIEDECL, d.DECTYPEVOIEDEST,d.DECCIRCUITVISITE, d.DECTYPEREGIME,
+d.DECVILLEDESTINATAIRE, d.DECBPDESTINATAIRE,d.DECMOYENTRANSPORT, d.DECPAYSDESTINATION,  d.DECMODEPAIEMENT,d.DECMODETRANSPORT,
+d.DECCODECREDITAIRE,d.DECMTCOMPTANT, d.DECMONTCFAFACTURE, d.DECMONTCFAFRET, d.DECASSURCFA, d.DECMONTASSURCFAELEM, d.DECREGDOUANIER,TA.RCLIBELLEAPUREMENT,rd.RCLIBELLEREGIMEDOUANIER, c.RCDESCIRCUITVISITE, p.RCCODECONTRIBUABLE, p.RCRAISONSOCIALE, p.RCPRENOMPPM, p.RCNOMPPM, p.RCNUMPPM, p.RCNOMVOIEPPM, p.RCVILLEPPM,m.MANIFMOYENTRANSPORT, m.MANIFDATEARRIVEE, m.MANIFMODETRANSPORT, PJ.DECCODEPIECEJT,MT.RCLIBELLEMODETRANS,TM.rclibelletypemanif,a.DECNUMARTDEC, a.DECNUMDECLARATION ARTNUMDECLARATION, a.DECREGFISCAL, a.DECCODEPROD,P.RCLIBELLETARIF,a.DECPRECUEMOA, a.DECPRECSEN, a.DECPOIDSBRUTDEC, a.DECPDNETDEC,a.DECQTECOMPLEMENT, a.DECQTEMERC, a.DECNBRECOLISDECL,
+a.DECMODECOND, a.DECMARQCOLIS, a.DECPAYSDEST, a.DECPAYSORIGINE, a.DECDESCOMMERCIALE,a.DECMTCFAFOB, a.DECVALDEVFOB,
+a.DECVALDOUANE, a.DECMTLIQUIDART, a.DECNUMTITRETRANS CONNAISSEMENT,a.DECNUMARTMANIF, a.DECPRECARTMANIF, a.DECPREC2ARTMANIF,
+a.DECNUMAVSGS, a.DECSGSEXEMPTION, a.DECNUMSGSDPI, AM.MANIFDATEEMB, L.RCLIBELLELIEUEMB
+FROM ADMINISTRATEUR.SEGGENDEC d 
+INNER JOIN ADMINISTRATEUR.PPM P ON d.DECCODEPPMDEC =P.RCCODEPPM
+INNER JOIN ADMINISTRATEUR.CIRCUITVISITE C ON C.RCCODECIRCUIT = d.DECCIRCUITVISITE
+INNER JOIN ADMINISTRATEUR.REGIMEDOUANIER RD ON rd.RCTYPEREGIME = d.DECTYPEREGIME
+AND rd.RCCODEREGIMEDOUANIER = d.DECREGDOUANIER
+INNER JOIN ADMINISTRATEUR.SEGARTDEC a ON a.DECANNEEENREGDEC = d.DECANNEEENREGDEC
+AND a.DECBURENREGDEC = d.DECBURENREGDEC AND a.DECNUMDECLARATION = d.DECNUMDECLARATION
+AND d.DECANNEEENREGDEC =$P!{panneeDec}  AND d.DECBURENREGDEC =$P!{pburEnregDec} AND d.DECNUMDECLARATION =$P!{pnumDec}
+INNER JOIN ADMINISTRATEUR.PRODUITS P ON a.DECCODEPROD = p.RCCODEPROD AND
+A.DECPRECUEMOA=P.RCPRECUEMOA AND A.DECPRECSEN=P.RCPRECSENEGAL
+INNER JOIN ADMINISTRATEUR.TYPEAPUREMENT TA ON d.DECTYPEAPUREMENT=TA.RCCODEAPUREMENT
+LEFT JOIN ADMINISTRATEUR.MODETRANSPORT MT ON d.DECMODETRANSPORT=MT.RCCODEMODETRANS
+LEFT JOIN ADMINISTRATEUR.ARTDECPJT PJ ON A.DECANNEEENREGDEC=PJ.DECANNEEENREGDEC AND
+a.DECBURENREGDEC = PJ.DECBURENREGDEC AND a.DECNUMDECLARATION = PJ.DECNUMDECLARATION
+LEFT JOIN ADMINISTRATEUR.ARTICLEMANIFESTE AM ON a.DECANNEEENREGMANIF = AM.MANIFANNEeENGMANIF
+AND A.DECBURENREGMANIF=AM.MANIFBUREAUENGMANIF AND A.DECNUMENREGMANIF=AM.MANIFNUMENREGMANIF
+LEFT JOIN ADMINISTRATEUR.SEGMENTGENMANIFESTE M ON AM.MANIFANNEeENGMANIF=M.MANIFANNEEENREGMANIF
+AND AM.MANIFBUREAUENGMANIF=M.MANIFBUREAUENREGMANIF AND AM.MANIFNUMENREGMANIF=M.MANIFNUMENREGMANIF
+LEFT JOIN ADMINISTRATEUR.TYPEMANIFESTE TM ON M.MANIFTYPEMANIFESTE=TM.RCCODETYPEMANIF LEFT JOIN ADMINISTRATEUR.LIEUEMBARQUEMENT L ON AM.MANIFCODELIEUEMB=L.RCCODELIEUEMB]]>
+	</queryString>
+	<field name="ARTNUMDECLARATION" class="java.lang.Integer"/>
+	<field name="CONNAISSEMENT" class="java.lang.String"/>
+	<field name="DECANNEEENREGDEC" class="java.lang.String"/>
+	<field name="DECASSURCFA" class="java.math.BigDecimal"/>
+	<field name="DECBPDECLARANT" class="java.lang.String"/>
+	<field name="DECBPDESTINATAIRE" class="java.lang.String"/>
+	<field name="DECBURDOUANE" class="java.lang.String"/>
+	<field name="DECBURENREGDEC" class="java.lang.String"/>
+	<field name="DECBURFRONTIERE" class="java.lang.String"/>
+	<field name="DECCIRCUITVISITE" class="java.lang.String"/>
+	<field name="DECCODEAGREE" class="java.lang.String"/>
+	<field name="DECCODECREDITAIRE" class="java.lang.String"/>
+	<field name="DECCODEDESTINATAIRE" class="java.lang.String"/>
+	<field name="DECCODEPIECEJT" class="java.lang.String"/>
+	<field name="DECCODEPPMDEC" class="java.lang.String"/>
+	<field name="DECCODEPROD" class="java.lang.String"/>
+	<field name="DECDATEENREGDEC" class="java.util.Date"/>
+	<field name="DECDESCOMMERCIALE" class="java.lang.String"/>
+	<field name="DECDOSSIER" class="java.lang.String"/>
+	<field name="DECMARQCOLIS" class="java.lang.String"/>
+	<field name="DECMODECOND" class="java.lang.String"/>
+	<field name="DECMODEDECLARATION" class="java.lang.String"/>
+	<field name="DECMODEPAIEMENT" class="java.lang.String"/>
+	<field name="DECMODETRANSPORT" class="java.lang.String"/>
+	<field name="DECMONTASSURCFAELEM" class="java.math.BigDecimal"/>
+	<field name="DECMONTCFAFACTURE" class="java.math.BigDecimal"/>
+	<field name="DECMONTCFAFRET" class="java.math.BigDecimal"/>
+	<field name="DECMOYENTRANSPORT" class="java.lang.String"/>
+	<field name="DECMTCFAFOB" class="java.math.BigDecimal"/>
+	<field name="DECMTCOMPTANT" class="java.math.BigDecimal"/>
+	<field name="DECMTLIQUIDART" class="java.math.BigDecimal"/>
+	<field name="DECNBREARTICLES" class="java.lang.Integer"/>
+	<field name="DECNBRECOLISDECL" class="java.lang.Integer"/>
+	<field name="DECNOMDECLARANT" class="java.lang.String"/>
+	<field name="DECNOMDESTINATAIRE" class="java.lang.String"/>
+	<field name="DECNOMVOIEDECL" class="java.lang.String"/>
+	<field name="DECNUMARTDEC" class="java.lang.Integer"/>
+	<field name="DECNUMARTMANIF" class="java.lang.Integer"/>
+	<field name="DECNUMAVSGS" class="java.lang.String"/>
+	<field name="DECNUMDECLARATION" class="java.lang.Integer"/>
+	<field name="DECNUMREPERTOIRE" class="java.lang.String"/>
+	<field name="DECNUMSGSDPI" class="java.lang.String"/>
+	<field name="DECNUMVOIEDEST" class="java.lang.String"/>
+	<field name="DECPAYSDEST" class="java.lang.String"/>
+	<field name="DECPAYSDESTINATION" class="java.lang.String"/>
+	<field name="DECPAYSORIGINE" class="java.lang.String"/>
+	<field name="DECPAYSPROVENANCE" class="java.lang.String"/>
+	<field name="DECPDNETDEC" class="java.math.BigDecimal"/>
+	<field name="DECPOIDSBRUTDEC" class="java.math.BigDecimal"/>
+	<field name="DECPREC2ARTMANIF" class="java.lang.Integer"/>
+	<field name="DECPRECARTMANIF" class="java.lang.Integer"/>
+	<field name="DECPRECSEN" class="java.lang.String"/>
+	<field name="DECPRECUEMOA" class="java.lang.String"/>
+	<field name="DECQTECOMPLEMENT" class="java.math.BigDecimal"/>
+	<field name="DECQTEMERC" class="java.math.BigDecimal"/>
+	<field name="DECREFDECL" class="java.lang.String"/>
+	<field name="DECREGDOUANIER" class="java.lang.String"/>
+	<field name="DECREGFISCAL" class="java.lang.String"/>
+	<field name="DECSGSEXEMPTION" class="java.lang.String"/>
+	<field name="DECTYPEAPUREMENT" class="java.lang.String"/>
+	<field name="DECTYPEREGIME" class="java.lang.String"/>
+	<field name="DECTYPEVOIEDECL" class="java.lang.String"/>
+	<field name="DECTYPEVOIEDEST" class="java.lang.String"/>
+	<field name="DECVALDEVFOB" class="java.math.BigDecimal"/>
+	<field name="DECVALDOUANE" class="java.math.BigDecimal"/>
+	<field name="DECVILLEDECL" class="java.lang.String"/>
+	<field name="DECVILLEDESTINATAIRE" class="java.lang.String"/>
+	<field name="MANIFDATEARRIVEE" class="java.util.Date"/>
+	<field name="MANIFDATEEMB" class="java.util.Date"/>
+	<field name="MANIFMODETRANSPORT" class="java.lang.Integer"/>
+	<field name="MANIFMOYENTRANSPORT" class="java.lang.String"/>
+	<field name="RCCODECONTRIBUABLE" class="java.lang.String"/>
+	<field name="RCDESCIRCUITVISITE" class="java.lang.String"/>
+	<field name="RCLIBELLEAPUREMENT" class="java.lang.String"/>
+	<field name="RCLIBELLELIEUEMB" class="java.lang.String"/>
+	<field name="RCLIBELLEMODETRANS" class="java.lang.String"/>
+	<field name="RCLIBELLEREGIMEDOUANIER" class="java.lang.String"/>
+	<field name="RCLIBELLETARIF" class="java.lang.String"/>
+	<field name="RCNOMPPM" class="java.lang.String"/>
+	<field name="RCNOMVOIEPPM" class="java.lang.String"/>
+	<field name="RCNUMPPM" class="java.lang.String"/>
+	<field name="RCPRENOMPPM" class="java.lang.String"/>
+	<field name="RCRAISONSOCIALE" class="java.lang.String"/>
+	<field name="RCVILLEPPM" class="java.lang.String"/>
+	<field name="rclibelletypemanif" class="java.lang.String"/>
+	<variable name="sumValFob" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DECVALDEVFOB}]]></variableExpression>
+	</variable>
+	<variable name="sumValDouane" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{DECVALDOUANE}]]></variableExpression>
+	</variable>
+	<variable name="numOrdreArticle" class="java.lang.Integer" incrementType="Group" incrementGroup="Article">
+		<initialValueExpression><![CDATA[new Integer("01")]]></initialValueExpression>
+	</variable>
+	<variable name="vMntTotalDec" class="java.math.BigDecimal"/>
+	<group name="Article">
+		<groupHeader>
+			<band height="179">
+				<rectangle>
+					<reportElement x="1" y="5" width="26" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="libArt" x="2" y="5" width="22" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.art}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="28" y="5" width="69" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="libRegFiscal" x="29" y="5" width="65" height="11" forecolor="#000000" backcolor="#FFFFFF"/>
+					<textElement isStyledText="true">
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.regimeFiscal}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="99" y="5" width="124" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="libArtManif" x="103" y="5" width="117" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.ArticleManif}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="226" y="5" width="73" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="libNbColis" x="228" y="5" width="69" height="11" forecolor="#000000" backcolor="#FFFFFF"/>
+					<textElement isStyledText="false">
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.nbreColis}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="300" y="5" width="96" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="libNomenclature" x="302" y="5" width="92" height="11" backcolor="#FFFFFF"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.nomenclature}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="398" y="5" width="93" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="libPoidsBrut" x="400" y="5" width="88" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.poidsBrut}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="492" y="5" width="61" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="libPoidsNet" x="494" y="5" width="57" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.poidsNet}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement mode="Opaque" x="3" y="35" width="296" height="139"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="301" y="35" width="88" height="28"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="libQteComplemt" x="304" y="36" width="82" height="12"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.qteComplement}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="390" y="35" width="80" height="28"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="libQteMercuriale" x="392" y="36" width="76" height="12"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.qteMercuriale}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="471" y="35" width="38" height="28"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="libOrigine" x="472" y="36" width="35" height="12"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.origine}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="510" y="35" width="43" height="28"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="libSoumission" x="512" y="36" width="43" height="12"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.soumission}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement x="300" y="94" width="251" height="80"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle>
+					<reportElement style="Style_1" x="302" y="65" width="42" height="28"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="345" y="65" width="82" height="28"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="430" y="65" width="40" height="28"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="471" y="65" width="79" height="28"/>
+					<graphicElement/>
+				</rectangle>
+				<textField isStretchWithOverflow="true">
+					<reportElement key="libValeurFob" x="304" y="68" width="36" height="21"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.valeurFob}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement key="libValeurDouane" x="432" y="68" width="34" height="21"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.valeurDouane}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfRegimeFiscal" x="29" y="18" width="65" height="11"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{DECREGFISCAL}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfNumArtManif" x="102" y="18" width="118" height="11"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).integerToStr($F{DECNUMARTMANIF}) + "/" + ($P{REPORT_SCRIPTLET}).integerToStr($F{DECPRECARTMANIF}) + "/" + ($P{REPORT_SCRIPTLET}).integerToStr($F{DECPREC2ARTMANIF})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfNbreColis" x="227" y="18" width="69" height="11"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).integerToStr($F{DECNBRECOLISDECL})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfPoidsBrut" x="400" y="18" width="87" height="11"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($F{DECPOIDSBRUTDEC})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfPoidsNet" x="494" y="18" width="55" height="11"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($F{DECPDNETDEC})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfQteComplmtaire" x="304" y="49" width="82" height="11"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($F{DECQTECOMPLEMENT})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfQteMercuriale" x="392" y="49" width="75" height="11"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($F{DECQTEMERC})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfOrigine" x="472" y="49" width="33" height="11"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{DECPAYSORIGINE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfSoumission" x="512" y="49" width="36" height="11"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfConnaissement" x="4" y="36" width="46" height="12"/>
+					<textElement isStyledText="true">
+						<font reportFont="policeVariables" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.connaissement}+$F{CONNAISSEMENT}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfDtEmbt" x="4" y="49" width="113" height="12"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.dtEmb} + ($P{REPORT_SCRIPTLET}).dateToStr($F{MANIFDATEEMB}) +";"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libDescriptCom" x="4" y="62" width="199" height="12"/>
+					<textElement>
+						<font reportFont="policeVariables" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.descriptCommerciale}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfDescCommerciale" x="4" y="72" width="29" height="12"/>
+					<textElement>
+						<font reportFont="policeVariables" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{DECDESCOMMERCIALE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfLibTarif" x="4" y="88" width="123" height="11"/>
+					<textElement>
+						<font reportFont="policeVariables" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.libelleTarif}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfRcLibTarif" x="4" y="99" width="67" height="11"/>
+					<textElement>
+						<font reportFont="policeVariables" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RCLIBELLETARIF}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfLibCodesPJ" x="4" y="111" width="197" height="11"/>
+					<textElement>
+						<font reportFont="policeVariables" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.CodesPJParticulieres}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfCodePJ" x="4" y="123" width="66" height="12"/>
+					<textElement>
+						<font reportFont="policeVariables" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{DECCODEPIECEJT}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfCircuitVisite" x="322" y="112" width="186" height="42"/>
+					<textElement>
+						<font reportFont="policeVariables" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RCDESCIRCUITVISITE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfValFob" x="348" y="70" width="72" height="14"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($F{DECVALDEVFOB})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfValDou" x="479" y="70" width="43" height="14"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($F{DECVALDOUANE})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfNomenclature" x="302" y="18" width="91" height="11"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{DECCODEPROD}+" " +$F{DECPRECUEMOA}+" "+$F{DECPRECSEN}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfLieuEmb" x="110" y="36" width="86" height="11"/>
+					<textElement>
+						<font reportFont="policeVariables" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["/"+$F{RCLIBELLELIEUEMB}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfDtEnreg" x="122" y="49" width="89" height="12"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.dtEnrg} + ($P{REPORT_SCRIPTLET}).dateToStr($F{MANIFDATEARRIVEE})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfDPI" x="5" y="143" width="269" height="13"/>
+					<textElement>
+						<font reportFont="policeVariables" size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.dpi}+$F{DECNUMSGSDPI}+ " " + $R{dec.av} +$F{DECNUMAVSGS} + " " +$R{dec.ex}+$F{DECSGSEXEMPTION}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfNumOrdreArticle" x="2" y="18" width="22" height="11"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).integerToStr($V{numOrdreArticle})]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="83">
+				<subreport>
+					<reportElement key="calculTaxes" x="3" y="1" width="549" height="79"/>
+					<subreportParameter name="pnumOrdreArticle">
+						<subreportParameterExpression><![CDATA[$V{numOrdreArticle}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="pburEnregDec"/>
+					<subreportParameter name="pnumArtDec"/>
+					<subreportParameter name="panneeDec"/>
+					<subreportParameter name="pnumDec"/>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<returnValue subreportVariable="vMntTotalDec" toVariable="vMntTotalDec"/>
+					<subreportExpression class="java.lang.String"><![CDATA[$P{ppath}+"CalculTaxes.jasper"]]></subreportExpression>
+				</subreport>
+				<elementGroup>
+					<elementGroup/>
+				</elementGroup>
+			</band>
+		</groupFooter>
+	</group>
+	<pageHeader>
+		<band height="174">
+			<rectangle>
+				<reportElement mode="Opaque" x="2" y="20" width="551" height="152"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="3" y="20" width="249" height="121"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle radius="5">
+				<reportElement x="3" y="21" width="248" height="65"/>
+				<graphicElement/>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfLibRegimeDouanier" x="111" y="1" width="270" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{RCLIBELLEREGIMEDOUANIER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="41" width="138" height="14"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.ppm} + ": " +($F{DECCODEDESTINATAIRE})]]></textFieldExpression>
+			</textField>
+			<elementGroup/>
+			<elementGroup/>
+			<elementGroup/>
+			<textField isBlankWhenNull="false">
+				<reportElement key="tfAdresseDest" x="9" y="57" width="122" height="15"/>
+				<textElement>
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{RCNUMPPM} + "  " +  $F{RCNOMVOIEPPM} + "   " + $F{RCVILLEPPM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libDestination" x="57" y="142" width="74" height="11"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.destination}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libProvenance" x="4" y="142" width="50" height="11"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.provenance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libBureau" x="133" y="142" width="35" height="11"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.bureau}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libModeReglement" x="169" y="142" width="81" height="11"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.modeReglement}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="258" y="141" width="96" height="27"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="356" y="141" width="95" height="27"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="453" y="141" width="96" height="27"/>
+				<graphicElement/>
+			</rectangle>
+			<textField>
+				<reportElement key="libAssurance" x="259" y="143" width="93" height="12"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.assurance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libFret" x="358" y="143" width="90" height="12"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.fret}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libAutresElts" x="455" y="142" width="89" height="11"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.autresElts}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="255" y="52" width="295" height="30"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="253" y="84" width="106" height="26"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="253" y="110" width="100" height="27"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="355" y="111" width="97" height="25"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="453" y="111" width="96" height="25"/>
+				<graphicElement/>
+			</rectangle>
+			<textField>
+				<reportElement key="libFacture" x="254" y="112" width="96" height="11"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.facture}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libValFob" x="357" y="113" width="92" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.valeurFob}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libValDouane" x="454" y="113" width="91" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.valeurDouane}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="361" y="83" width="39" height="26"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="400" y="83" width="51" height="26"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="452" y="83" width="53" height="26"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="505" y="83" width="45" height="26"/>
+				<graphicElement/>
+			</rectangle>
+			<textField>
+				<reportElement key="libRefDec" x="254" y="84" width="104" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.referenceDec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libNumCredit" x="361" y="84" width="38" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.numCredit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libNumAgrement" x="401" y="84" width="48" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.numAgrement}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libBurFontiere" x="452" y="84" width="51" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.burFrontiere}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libNbreArt" x="506" y="84" width="43" height="10"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.nbreArticles}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="libDeclarant" x="255" y="53" width="54" height="12"/>
+				<textElement>
+					<font reportFont="policeLibelle" size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.declarant}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfnomDeclarant" x="340" y="57" width="95" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECNOMDECLARANT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="tfPpmBpVilleDec" x="301" y="69" width="157" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.ppm} + " " + $F{DECCODEPPMDEC}+" "  + $R{dec.BP}+": "+$F{DECBPDECLARANT} + " " + $F{DECVILLEDECL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="254" y="95" width="104" height="12"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECREFDECL}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfNumCredit" x="362" y="94" width="36" height="12"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECCODECREDITAIRE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfAgrement" x="408" y="95" width="40" height="12"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECCODEAGREE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfBurFrontiere" x="453" y="95" width="49" height="12"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECBURFRONTIERE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="506" y="95" width="42" height="12"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).integerToStr($F{DECNBREARTICLES})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfValeurFac" x="254" y="124" width="96" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($F{DECMONTCFAFACTURE})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfValeurFob" x="358" y="124" width="91" height="10"/>
+				<textElement>
+					<font reportFont="policeVariables" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($V{sumValFob})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfValeurDou" x="454" y="123" width="88" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($V{sumValDouane})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfAssurance" x="260" y="155" width="90" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($F{DECASSURCFA})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfFret" x="357" y="155" width="90" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($F{DECMONTCFAFRET})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="454" y="155" width="90" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).bigDecimalToStr($F{DECMONTASSURCFAELEM})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfProvenance" x="4" y="154" width="47" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECPAYSPROVENANCE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="60" y="154" width="63" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECPAYSDESTINATION}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfBureau" x="133" y="154" width="35" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECBURDOUANE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfModeReglement" x="171" y="154" width="77" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECMODEPAIEMENT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfInfoApurement" mode="Transparent" x="8" y="91" width="204" height="33"/>
+				<textElement>
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{dec.transport}+" "+$F{rclibelletypemanif}]]></textFieldExpression>
+			</textField>
+			<elementGroup/>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfCodeContrib" mode="Opaque" x="169" y="28" width="72" height="11"/>
+				<textElement textAlignment="Right">
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{RCCODECONTRIBUABLE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="260" y="28" width="24" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECTYPEREGIME} + " " + $F{DECREGDOUANIER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfDossier" mode="Transparent" x="289" y="28" width="35" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECDOSSIER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfDateDecEnreg" x="335" y="27" width="76" height="11"/>
+				<textElement textAlignment="Center">
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).dateToStr($F{DECDATEENREGDEC})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfNumRep" x="420" y="27" width="59" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DECNUMREPERTOIRE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tfNumDeclaration" x="491" y="27" width="61" height="11"/>
+				<textElement>
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).getAnnee2position($F{DECANNEEENREGDEC}) + " " +
+$F{DECBURENREGDEC} + " " +($P{REPORT_SCRIPTLET}).integerToStr($F{DECNUMDECLARATION})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="st_page" positionType="Float" x="471" y="0" width="24" height="12"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Page:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tf_page" positionType="Float" x="493" y="0" width="12" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<lastPageFooter>
+		<band height="12">
+			<textField>
+				<reportElement key="tfMntTotalDec" x="445" y="0" width="78" height="11"/>
+				<textElement textAlignment="Right">
+					<font reportFont="policeVariables" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{vMntTotalDec}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

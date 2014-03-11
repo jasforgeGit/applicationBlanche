@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="ManifesteEnreg_Articles" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" scriptletClass="sn.com.douane.web.rc.sysEnv" resourceBundle="gainde2005web.config.resources.ApplicationResources">
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="true"/>
+	<property name="com.jasperassistant.designer.DataSource" value="dbds11"/>
+	<reportFont name="policeLibelle" isDefault="false" fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="true" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<reportFont name="policeVariables" isDefault="false" fontName="SansSerif" size="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<parameter name="pannee" class="java.lang.String"/>
+	<parameter name="pnumeroManif" class="java.lang.Integer"/>
+	<parameter name="pbureau" class="java.lang.String"/>
+	<parameter name="ppath" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\Workspace\\GAINDE2005Web\\WebContent\\Etats\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+s.MANIFANNEEENREGMANIF  AS  MANIFANNEEENREGMANIF,
+s.MANIFNUMENREGMANIF AS  MANIFNUMENREGMANIF,
+s.MANIFBUREAUENREGMANIF AS   MANIFBUREAUENREGMANIF,
+s.MANIFDATEENREGMANIF AS MANIFDATEENREGMANIF, 
+b.RCLIBELLEBURDOUANE AS RCLIBELLEBURDOUANE, 
+s.MANIFJAUGENETTE AS MANIFJAUGENETTE, 
+s.MANIFJAUGEBRUTE AS MANIFJAUGEBRUTE,
+s.MANIFMOYENTRANSPORT AS MANIFMOYENTRANSPORT, 
+s.MANIFNBREARTICLEMANIF AS MANIFNBREARTICLEMANIF,  
+s.MANIFDATEARRIVEE AS MANIFDATEARRIVEE, 
+s.MANIFVALEURAPPROX AS MANIFVALEURAPPROX,
+s.MANIFNUMREP AS MANIFNUMREP, 
+lieu.RCLIBELLELIEUEMB AS RCLIBELLELIEUEMB, 
+ppm.RCPRENOMPPM AS RCPRENOMPPM, 
+ppm.RCNOMPPM AS RCNOMPPM,
+ppm.RCTYPEVOIEPPM AS RCTYPEVOIEPPM,
+ppm.RCNOMVOIEPPM AS RCNOMVOIEPPM,
+ppm.RCVILLEPPM AS RCVILLEPPM,
+ppm.RCBOITEPOSTALEPPM RCBOITEPOSTALEPPM,
+ppm.RCNUMPPM AS RCNUMPPM,
+tm.RCLIBELLETYPEMANIF AS RCLIBELLETYPEMANIF,
+a.MANIFNUMARTICLEMANIF AS MANIFNUMARTICLEMANIF,
+a.MANIFNBRCOLIS AS MANIFNBRCOLIS, 
+a.MANIFNUMTITRETRANSP AS MANIFNUMTITRETRANSP, 
+a.MANIFMARQUESCOLIS AS MANIFMARQUESCOLIS, 
+a.MANIFDESIGNATIONCOM AS MANIFDESIGNATIONCOM, 
+a.MANIFPDSBRUTMANIF AS MANIFPDSBRUTMANIF, 
+a.MANIFNOMDESTINATAIRE AS MANIFNOMDESTINATAIRE, 
+a.MANIFNOMEXPEDITEUR AS MANIFNOMEXPEDITEUR,
+a.MANIFDATEEMB MANIFDATEEMB,
+provenance.RCLIBELLEPAYS PAYSPROVENANCE,
+pavillon.RCLIBELLEPAYS PAYSPAVILLON
+FROM
+ADMINISTRATEUR.LIEUEMBARQUEMENT AS lieu, ADMINISTRATEUR.CONSIGNATAIRES AS co, ADMINISTRATEUR.TYPEMANIFESTE AS tm, ADMINISTRATEUR.BUREAUDOUANE AS b, ADMINISTRATEUR.SEGMENTGENMANIFESTE AS s, ADMINISTRATEUR.ARTICLEMANIFESTE AS a, ADMINISTRATEUR.PPM AS ppm,
+ADMINISTRATEUR.PAYS provenance, ADMINISTRATEUR.PAYS pavillon
+WHERE
+lieu.RCCODELIEUEMB = a.MANIFCODELIEUEMB 
+AND co.RCCODECONSIGNATAIRE = s.MANIFCODECONSIGNATAIRE 
+AND tm.RCCODETYPEMANIF = s.MANIFTYPEMANIFESTE 
+AND b.RCCODEBURDOUANE = s.MANIFBUREAUENREGMANIF 
+AND s.MANIFANNEEENREGMANIF = a.MANIFANNEEENGMANIF  
+AND s.MANIFNUMENREGMANIF = a.MANIFNUMENREGMANIF  
+AND s.MANIFBUREAUENREGMANIF = a.MANIFBUREAUENGMANIF 
+AND co.RCCODEPPM = ppm.RCCODEPPM
+AND pavillon.RCCODEPAYS = s.MANIFPAVILLONNAVIRE
+AND provenance.RCCODEPAYS = s.MANIFCODEPAYSPROV
+AND s.MANIFANNEEENREGMANIF = $P{pannee}  
+AND s.MANIFNUMENREGMANIF = $P{pnumeroManif}  
+AND s.MANIFBUREAUENREGMANIF =$P{pbureau}
+ORDER BY lieu.RCCODELIEUEMB, a.MANIFNUMARTICLEMANIF, a.MANIFINDPRECIS, a. MANIFINDPRECIS2]]>
+	</queryString>
+	<field name="MANIFANNEEENREGMANIF" class="java.lang.String"/>
+	<field name="MANIFBUREAUENREGMANIF" class="java.lang.String"/>
+	<field name="MANIFDATEARRIVEE" class="java.util.Date"/>
+	<field name="MANIFDATEEMB" class="java.util.Date"/>
+	<field name="MANIFDATEENREGMANIF" class="java.util.Date"/>
+	<field name="MANIFDESIGNATIONCOM" class="java.lang.String"/>
+	<field name="MANIFJAUGEBRUTE" class="java.math.BigDecimal"/>
+	<field name="MANIFJAUGENETTE" class="java.math.BigDecimal"/>
+	<field name="MANIFMARQUESCOLIS" class="java.lang.String"/>
+	<field name="MANIFMOYENTRANSPORT" class="java.lang.String"/>
+	<field name="MANIFNBRCOLIS" class="java.lang.Integer"/>
+	<field name="MANIFNBREARTICLEMANIF" class="java.lang.Integer"/>
+	<field name="MANIFNOMDESTINATAIRE" class="java.lang.String"/>
+	<field name="MANIFNOMEXPEDITEUR" class="java.lang.String"/>
+	<field name="MANIFNUMARTICLEMANIF" class="java.lang.Integer"/>
+	<field name="MANIFNUMENREGMANIF" class="java.lang.Integer"/>
+	<field name="MANIFNUMREP" class="java.lang.String"/>
+	<field name="MANIFNUMTITRETRANSP" class="java.lang.String"/>
+	<field name="MANIFPDSBRUTMANIF" class="java.math.BigDecimal"/>
+	<field name="MANIFVALEURAPPROX" class="java.math.BigDecimal"/>
+	<field name="PAYSPAVILLON" class="java.lang.String"/>
+	<field name="PAYSPROVENANCE" class="java.lang.String"/>
+	<field name="RCBOITEPOSTALEPPM" class="java.lang.String"/>
+	<field name="RCLIBELLEBURDOUANE" class="java.lang.String"/>
+	<field name="RCLIBELLELIEUEMB" class="java.lang.String"/>
+	<field name="RCLIBELLETYPEMANIF" class="java.lang.String"/>
+	<field name="RCNOMPPM" class="java.lang.String"/>
+	<field name="RCNOMVOIEPPM" class="java.lang.String"/>
+	<field name="RCNUMPPM" class="java.lang.String"/>
+	<field name="RCPRENOMPPM" class="java.lang.String"/>
+	<field name="RCTYPEVOIEPPM" class="java.lang.String"/>
+	<field name="RCVILLEPPM" class="java.lang.String"/>
+	<group name="lieu_emb" isStartNewPage="true" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{RCLIBELLELIEUEMB}]]></groupExpression>
+		<groupHeader>
+			<band height="145">
+				<rectangle radius="10">
+					<reportElement x="632" y="32" width="76" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="554" y="32" width="72" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="474" y="32" width="74" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="389" y="32" width="80" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="274" y="32" width="109" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="183" y="32" width="86" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="3" y="32" width="80" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="88" y="32" width="89" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="369" y="72" width="105" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tf_typeManif" x="466" y="10" width="75" height="14"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).typeManifeste($F{RCLIBELLETYPEMANIF})]]></textFieldExpression>
+				</textField>
+				<rectangle radius="10">
+					<reportElement x="713" y="32" width="84" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="3" y="72" width="236" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="243" y="72" width="121" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="684" y="72" width="116" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="478" y="72" width="92" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="10">
+					<reportElement x="574" y="72" width="105" height="39"/>
+					<graphicElement/>
+				</rectangle>
+				<textField isStretchWithOverflow="true">
+					<reportElement key="tfLieuEmbarq" x="582" y="91" width="91" height="14"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RCLIBELLELIEUEMB}]]></textFieldExpression>
+				</textField>
+				<rectangle radius="5">
+					<reportElement x="3" y="119" width="80" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="6">
+					<reportElement x="85" y="119" width="134" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="6">
+					<reportElement x="222" y="119" width="195" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="6">
+					<reportElement x="420" y="119" width="131" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="6">
+					<reportElement x="554" y="119" width="125" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="6">
+					<reportElement x="682" y="119" width="62" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<rectangle radius="6">
+					<reportElement x="747" y="119" width="54" height="26"/>
+					<graphicElement/>
+				</rectangle>
+				<textField>
+					<reportElement key="tfOrdreConsig" x="255" y="97" width="107" height="12"/>
+					<textElement textAlignment="Right">
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MANIFNUMREP}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfDateEmbarq" x="692" y="97" width="87" height="12"/>
+					<textElement textAlignment="Center">
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).dateToStr($F{MANIFDATEEMB})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfNbreArt" x="482" y="97" width="53" height="12"/>
+					<textElement textAlignment="Right">
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Number"><![CDATA[$F{MANIFNBREARTICLEMANIF}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfValeurApprox" x="375" y="97" width="95" height="12"/>
+					<textElement textAlignment="Right">
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{MANIFVALEURAPPROX}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfBoitePostalePpm" x="178" y="97" width="16" height="12"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RCBOITEPOSTALEPPM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfVillePpm" x="118" y="97" width="57" height="12"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RCVILLEPPM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfNomVoiePpm" x="67" y="97" width="49" height="12"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RCNOMVOIEPPM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfTypeVoiePpm" x="34" y="97" width="30" height="12"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RCTYPEVOIEPPM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfNumPpm" x="12" y="97" width="25" height="12"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RCNUMPPM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfNomConsig" x="131" y="84" width="84" height="14"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RCNOMPPM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfPrenomConsig" x="44" y="84" width="85" height="14"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RCPRENOMPPM}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfProvenance" x="717" y="49" width="80" height="13"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{PAYSPROVENANCE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfJaugeNette" x="637" y="49" width="63" height="13"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{MANIFJAUGENETTE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="tfJaugeBrute" x="556" y="48" width="67" height="13"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{MANIFJAUGEBRUTE}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfDateArrivee" x="479" y="48" width="66" height="13"/>
+					<textElement textAlignment="Center">
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).dateToStr($F{MANIFDATEARRIVEE})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfPavillon" x="391" y="49" width="74" height="13"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{PAYSPAVILLON}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfMTransport" x="283" y="49" width="80" height="13"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MANIFMOYENTRANSPORT}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfDateEnreg" x="186" y="49" width="80" height="13"/>
+					<textElement textAlignment="Center">
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).dateToStr($F{MANIFDATEENREGMANIF})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfNumManif" x="144" y="49" width="27" height="13"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$F{MANIFNUMENREGMANIF}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfManifBureauEnreg" x="115" y="49" width="26" height="13"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{MANIFBUREAUENREGMANIF}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfManifAnnee" x="89" y="49" width="24" height="13"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).getAnnee2position($F{MANIFANNEEENREGMANIF})]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement key="tfBureauDouane" x="8" y="49" width="73" height="13"/>
+					<textElement>
+						<font reportFont="policeVariables"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{RCLIBELLEBURDOUANE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libBureauDouane" x="10" y="37" width="71" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.bureauDouane}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libDateEnreg" x="188" y="37" width="77" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.dateEnreg}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libMTransport" x="275" y="37" width="107" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.mTransport}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libPavillon" x="390" y="37" width="76" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.pavillon}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libDateArrivee" x="477" y="36" width="69" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.dateArrivee}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libJaugeBrute" x="556" y="36" width="67" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.jaugeBrute}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libJaugeNette" x="636" y="37" width="71" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.jaugeNette}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libJProvenance" x="716" y="37" width="82" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.provenance}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libConsignataire" x="11" y="75" width="81" height="13"/>
+					<textElement>
+						<font reportFont="policeLibelle"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.consignataire}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libNumEnreg" x="92" y="37" width="83" height="11"/>
+					<textElement>
+						<font reportFont="policeLibelle" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.numEnregistrement}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libOrdreConsig" x="252" y="75" width="112" height="13"/>
+					<textElement>
+						<font reportFont="policeLibelle"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.numOrdre}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libValeurApprox" x="371" y="75" width="99" height="13"/>
+					<textElement>
+						<font reportFont="policeLibelle"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.valeurApproximative}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libLieuEmbarq" x="583" y="74" width="97" height="13"/>
+					<textElement>
+						<font reportFont="policeLibelle"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.lieuEmbarquement}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libNbreArt" x="483" y="74" width="82" height="13"/>
+					<textElement>
+						<font reportFont="policeLibelle"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.nbreArticles}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libDateEmbarq" x="693" y="75" width="107" height="13"/>
+					<textElement>
+						<font reportFont="policeLibelle"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.dateEmbarquement}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement key="libArtManif" x="6" y="120" width="51" height="12"/>
+					<textElement textAlignment="Center">
+						<font reportFont="policeLibelle" fontName="sansserif"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.numArticle}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement key="libNumTitreTransp" x="115" y="121" width="61" height="12"/>
+					<textElement textAlignment="Center">
+						<font reportFont="policeLibelle" fontName="sansserif"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.numTitreTrans}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libExpediteur" x="225" y="129" width="106" height="12"/>
+					<textElement>
+						<font reportFont="policeLibelle" fontName="sansserif"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.expediteur}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libDestinataire" x="334" y="129" width="83" height="12"/>
+					<textElement>
+						<font reportFont="policeLibelle" fontName="sansserif"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.destinataire}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libMarqueColis" x="429" y="129" width="123" height="12"/>
+					<textElement>
+						<font reportFont="policeLibelle" fontName="sansserif"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.numMarqueColis}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libDesignCom" x="561" y="129" width="117" height="12"/>
+					<textElement>
+						<font reportFont="policeLibelle" fontName="sansserif"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.designCommerciale}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libPoidsBrut" x="750" y="129" width="46" height="12"/>
+					<textElement>
+						<font reportFont="policeLibelle" fontName="sansserif"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.poidsBrut}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libNbreColis" x="685" y="129" width="65" height="12"/>
+					<textElement>
+						<font reportFont="policeLibelle" fontName="sansserif"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.nbreColis}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement key="libManifeste" x="325" y="2" width="140" height="28"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.manifeste}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<pageHeader>
+		<band height="26">
+			<textField isBlankWhenNull="true">
+				<reportElement key="tf_dateedit" positionType="Float" x="766" y="0" width="35" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($P{REPORT_SCRIPTLET}).dateToStr(new java.sql.Date(System.currentTimeMillis()))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement key="tf_page" positionType="Float" x="779" y="13" width="20" height="12"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Number"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="st_page" positionType="Float" x="740" y="14" width="37" height="12"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Page:]]></text>
+			</staticText>
+			<textField>
+				<reportElement key="tfDateEdition" x="732" y="0" width="33" height="12"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.dateEdition}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="1" width="53" height="23"/>
+				<graphicElement/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{ppath}+"logo.gif"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement key="libLogo" x="53" y="4" width="141" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$R{manif.logo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="14">
+			<textField>
+				<reportElement key="tfNumArtManif" x="12" y="1" width="30" height="13"/>
+				<textElement textAlignment="Right">
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{MANIFNUMARTICLEMANIF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="tfNumTitreTransp" x="89" y="1" width="129" height="13"/>
+				<textElement>
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MANIFNUMTITRETRANSP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="tfExpediteur" x="226" y="1" width="100" height="13"/>
+				<textElement>
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MANIFNOMEXPEDITEUR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="tfDestinataire" x="332" y="1" width="84" height="13"/>
+				<textElement>
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MANIFNOMDESTINATAIRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="tfMarqueColis" x="422" y="1" width="127" height="13"/>
+				<textElement textAlignment="Right">
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MANIFMARQUESCOLIS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="tfDesignCom" x="559" y="1" width="128" height="13"/>
+				<textElement>
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MANIFDESIGNATIONCOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="tfNbreColis" x="693" y="1" width="56" height="13"/>
+				<textElement textAlignment="Right">
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{MANIFNBRCOLIS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement key="tfPoidsBrut" x="752" y="1" width="48" height="13"/>
+				<textElement textAlignment="Right">
+					<font reportFont="policeVariables"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{MANIFPDSBRUTMANIF}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RECEVABILITE SYSTEM "recevabilite.dtd">
+<!--
+	LE MESSAGE EST GENERE LORSQUE LA REQUETE NE RENVOIE PAS DE RESULTAT
+	le message est affiché lorsque la requete ne renvoie pas de résultat.
+-->
+<recevabilite>
+<MODULE ID="declaration">
+	<FONCTION ID="F1" module="declaration"
+		LIBELLE="Demande modification declaration segment general"
+		ORDREAFFICHE="1" DESCRIPTION="FONCTION1">
+		<!-- DEBUT - Gestion de la recevabilite du segment general -->
+		<!--Controles lies au REGIME -->
+		<!--Controles lies aux,indicateurs -->
+				
+		<GROUPE ID="G10" fonction="F1" groupe="Controle info PPM">
+			<CONDITION ID="C1G10" groupe="G10" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMPPMDEST='' _AND PARAMVILLEDESTINATAIRE=''">
+				<TRAITEMENT ID="T1C1" condition="C1G10"
+					DESCRIPTION="Controle saisie ville destinataire si PPM pas saisi">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G10:Ville destinataire obligatoire">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C2G10" groupe="G10" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMPPMDEST='' _AND PARAMVOIEDESTINATAIRE=''">
+				<TRAITEMENT ID="T1C1" condition="C2G10"
+					DESCRIPTION="Controle saisie voie destinataire si PPM pas saisi">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C2G10:Voie destinataire obligatoire">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C3G10" groupe="G10" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMPPMDEST='' _AND PARAMNOMDESTINATAIRE='' ">
+				<TRAITEMENT ID="T1C1" condition="C3G10"
+					DESCRIPTION="Controle saisie nom destinataire si PPM pas saisi">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C3G10:Nom destinataire obligatoire">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C4G10" groupe="G10" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMPPMDEST!='' _AND PARAMTYPEREGIME='E'">
+				<TRAITEMENT ID="T1C1" condition="C3G10"
+					DESCRIPTION="Controle saisie code PPM">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C4G10:Le code PPM destinataire ne doit pas etre saisi">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>	
+			<CONDITION ID="C5G10" groupe="G10" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMPPMDEST!='' _AND PARAMTYPEREGIME='R' ">
+				<TRAITEMENT ID="T1C1" condition="C5G10"
+					DESCRIPTION="Controle saisie code PPM">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C5G10:Le code PPM destinataire ne doit pas etre saisi">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+			<!--Ajouté ce 07/10/2010 pour prendre en compte le fait d'introduire le code expéditeur
+			à la place du code destinataire dans le cas des régimes S1 et S2
+			pour la gestion des informations au niveau de l'édition -->
+			<CONDITION ID="C6G10" groupe="G10" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMPPMDEST!='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='1'">
+				<TRAITEMENT ID="T1C1" condition="C6G10"
+					DESCRIPTION="Controle saisie code PPM">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C6G10:Le code PPM destinataire ne doit pas etre saisi">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>				
+			<CONDITION ID="C7G10" groupe="G10" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMPPMDEST!='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='2'">
+				<TRAITEMENT ID="T1C1" condition="C7G10"
+					DESCRIPTION="Controle saisie code PPM">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C7G10:Le code PPM destinataire ne doit pas etre saisi">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>				
+			
+		</GROUPE>
+		
+		<!-- 
+		<GROUPE ID="G14" fonction="F1"
+			groupe="Controle soumission ZFI">
+			<CONDITION ID="C1G14" groupe="G14" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="SELECT * FROM ADMINISTRATEUR.INDICATEURREGDOU 
+					WHERE RCTYPEREGIME='PARAMTYPEREGIME' and RCCODEREGIMEDOUANIER='PARAMCODEREGIMEDOUANE' and RCCODEINDICATEUR='YDESZFI' and 
+					RCDATEVALIDITE &lt;= 'PARAMDATETRAITEMENT' and (('PARAMDATETRAITEMENT' &lt;=RCDATECLOTURE ) or (RCDATECLOTURE IS NULL))">
+				<TRAITEMENT ID="T1C1" condition="C1G14"
+					DESCRIPTION="Controle soumission ZFI">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="SELECT RCCODEPPM FROM ADMINISTRATEUR.PPM
+					WHERE RCCODEPPM='PARAMPPMDEST' 
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G14:Le destinataire est inconnu">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		-->
+		
+		<!-- 
+		<GROUPE ID="G17" fonction="F1"
+			groupe="Controle PPM destinataire">
+			<CONDITION ID="C1G17" groupe="G17" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="SELECT * FROM ADMINISTRATEUR.INDICATEURREGDOU 
+					WHERE RCTYPEREGIME='PARAMTYPEREGIME' and RCCODEREGIMEDOUANIER='PARAMCODEREGIMEDOUANE' and RCCODEINDICATEUR='YDESPPM' and 
+					RCDATEVALIDITE &lt;= 'PARAMDATETRAITEMENT' and (('PARAMDATETRAITEMENT' &lt;=RCDATECLOTURE ) or (RCDATECLOTURE IS NULL)) ">
+				<TRAITEMENT ID="T1C1" condition="C1G17"
+					DESCRIPTION="Controle PPM destinataire">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="SELECT RCCODEPPM FROM ADMINISTRATEUR.PPM
+					WHERE RCCODEPPM='PARAMPPMDEST'
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G17:Incompatibilite entre le regime et le destinataire:PPM obligatoire pour ce regime">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		 -->
+		 
+		<GROUPE ID="G25" fonction="F1"
+			groupe="Controle saisi code destinataire export">
+			<CONDITION ID="C1G25" groupe="G25" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031" VALEUR="PARAMPPMDEST!='' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C1" condition="C1G25"
+					DESCRIPTION="Controle code destinataire export">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="SELECT * FROM ADMINISTRATEUR.TYPEREGIMEDOUANE TY1
+					WHERE TY1.RCTYPEREGIME='PARAMTYPEREGIME' and TY1.RCTYPEREGIME IN 
+				   (SELECT TY2.RCTYPEREGIME FROM ADMINISTRATEUR.TYPEREGIMEDOUANE TY2
+					WHERE TY2.RCTYPEREGIME='PARAMTYPEREGIME' and TY2.RCIMPORTEXPORT='0')
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G25:Le code du destinataire ne doit pas etre saisi lors exportation">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+				
+		<GROUPE ID="G28" fonction="F1"
+			groupe="Controle mode transport/exportation sur E,R">
+			<CONDITION ID="C1G28" groupe="G28" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031" VALEUR="PARAMMODETRANSPORT='' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C1" condition="C1G28"
+					DESCRIPTION="Controle mode transport/exportation">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="SELECT * FROM ADMINISTRATEUR.TYPEREGIMEDOUANE TY1
+					WHERE TY1.RCTYPEREGIME='PARAMTYPEREGIME' and TY1.RCTYPEREGIME IN 
+				   (SELECT TY2.RCTYPEREGIME FROM ADMINISTRATEUR.TYPEREGIMEDOUANE TY2
+					WHERE TY2.RCTYPEREGIME='PARAMTYPEREGIME' and TY2.RCIMPORTEXPORT='0')
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G28:Mode de transport obligatoire lors exportation">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		
+		<GROUPE ID="G29" fonction="F1"
+			groupe="Controle moyen transport/exportation  sur E,R">
+			<CONDITION ID="C1G29" groupe="G29" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031" VALEUR="PARAMMOYENTRANSPORT='' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C1" condition="C1G29"
+					DESCRIPTION="Controle moyen transport/exportation">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="SELECT * FROM ADMINISTRATEUR.TYPEREGIMEDOUANE TY1
+					WHERE TY1.RCTYPEREGIME='PARAMTYPEREGIME' and TY1.RCTYPEREGIME IN 
+				   (SELECT TY2.RCTYPEREGIME FROM ADMINISTRATEUR.TYPEREGIMEDOUANE TY2
+					WHERE TY2.RCTYPEREGIME='PARAMTYPEREGIME' and TY2.RCIMPORTEXPORT='0')
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G29:Moyen de transport obligatoire lors exportation">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		
+		<GROUPE ID="G30" fonction="F1" groupe="Controle pays destination lors C">
+			<CONDITION ID="C1G30" groupe="G30" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMPAYSDESTINATION!='' _AND PARAMTYPEREGIME='C' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C1" condition="C1G30"
+					DESCRIPTION="Controle pays destination lors C">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="SELECT * FROM ADMINISTRATEUR.TYPEREGIMEDOUANE TY1
+					WHERE TY1.RCTYPEREGIME='PARAMTYPEREGIME' and TY1.RCTYPEREGIME IN
+				   (SELECT TY2.RCTYPEREGIME FROM ADMINISTRATEUR.TYPEREGIMEDOUANE TY2
+					WHERE TY2.RCTYPEREGIME='PARAMTYPEREGIME' and TY2.RCIMPORTEXPORT='0')
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G30:Pays de destination saisi a tort">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		
+		<GROUPE ID="G32" fonction="F1" groupe="Controle pays destination lors S1, S2">
+			<CONDITION ID="C1G32" groupe="G32" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMPAYSDESTINATION='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='1' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C1" condition="C1G32"
+					DESCRIPTION="Controle pays destination lors S1, S2">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G32:Pays de destination obligatoire">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C2G32" groupe="G32" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMPAYSDESTINATION='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='2' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C1" condition="C2G32"
+					DESCRIPTION="Controle pays destination lors S1, S2">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C2G32:Pays de destination obligatoire">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C3G32" groupe="G32" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMCODEEXPORTATEUR='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='1' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C3" condition="C3G32"
+					DESCRIPTION="Controle PPM expediteur lors S1, S2">
+					<SQL ID="SQL1" type="" traitement="T1C3"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C3"
+						VALEUR="C3G32:PPM expéditeur obligatoire pour ce régime">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C4G32" groupe="G32" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMCODEEXPORTATEUR='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='2' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C4" condition="C4G32"
+					DESCRIPTION="Controle PPM expediteur lors S1, S2">
+					<SQL ID="SQL1" type="" traitement="T1C4"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C4"
+						VALEUR="C4G32:PPM expéditeur obligatoire pour ce régime">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		
+		<GROUPE ID="G33" fonction="F1" groupe="Controle bureau destination lors S1, S2 ">
+			<CONDITION ID="C1G33" groupe="G33" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMBUREAUDESTINATION='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='1'">
+				<TRAITEMENT ID="T1C1" condition="C1G33"
+					DESCRIPTION="Controle bureau destination lors S1">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G33:Bureau destination obligatoire">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C2G33" groupe="G33" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031" 
+				VALEUR="PARAMBUREAUDESTINATION='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='2' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C1" condition="C2G33"
+					DESCRIPTION="Controle bureau destination lors S2">
+					<SQL ID="SQL1" type="" traitement="T1C2"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C2"
+						VALEUR="C1G33:Bureau destination obligatoire">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		
+		<GROUPE ID="G34" fonction="F1" groupe="Controle moyen de transport destination lors E, R, S1, S2">
+			<CONDITION ID="C1G34" groupe="G34" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMMOYENTRANSPORT='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='1' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C1" condition="C1G34"
+					DESCRIPTION="Controle moyen de transport destination lors S1">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G34:Moyen de transport destination obligatoire">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C2G34" groupe="G34" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMMOYENTRANSPORT='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='2' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C2" condition="C2G34"
+					DESCRIPTION="Controle moyen de transport destination lors S2">
+					<SQL ID="SQL1" type="" traitement="T1C2"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C2"
+						VALEUR="C2G34:Moyen de transport destination obligatoire">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		
+		<GROUPE ID="G35" fonction="F1" groupe="Controle mode de transport destination lors S1">
+			<CONDITION ID="C1G35" groupe="G35" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMMODETRANSPORT='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='1' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C1" condition="C1G35"
+					DESCRIPTION="Controle mode de transport destination lors S1, S2">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G35:Mode de transport destination obligatoire">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C2G35" groupe="G35" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031"
+				VALEUR="PARAMMODETRANSPORT='' _AND PARAMTYPEREGIME='S' _AND PARAMCODEREGIMEDOUANE='2' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C2" condition="C2G35"
+					DESCRIPTION="Controle mode de transport destination lors S2">
+					<SQL ID="SQL1" type="" traitement="T1C2"
+						VALEUR="
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C2"
+						VALEUR="C2G35:Mode de transport destination obligatoire">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+				
+		<GROUPE ID="G39" fonction="F1"
+			groupe="Controle code exportateur lors export">
+			<CONDITION ID="C1G39" groupe="G39" DATEVALEUR="01/01/06"
+				DATEFIN="01/01/2031" VALEUR="PARAMCODEEXPORTATEUR='' _AND PARAMCODEREGIMEFISCAL = ''">
+				<TRAITEMENT ID="T1C1" condition="C1G39"
+					DESCRIPTION="Controle code exportateur lors export">
+					<SQL ID="SQL1" type="" traitement="T1C1"
+						VALEUR="SELECT * FROM ADMINISTRATEUR.TYPEREGIMEDOUANE TY1
+					WHERE TY1.RCTYPEREGIME='PARAMTYPEREGIME' and TY1.RCTYPEREGIME IN
+				   (SELECT TY2.RCTYPEREGIME FROM ADMINISTRATEUR.TYPEREGIMEDOUANE TY2
+					WHERE TY2.RCTYPEREGIME='PARAMTYPEREGIME' and TY2.RCIMPORTEXPORT='0')
+				   ">
+					</SQL>
+					<MSG SQL="SQL1" traitement="T1C1"
+						VALEUR="C1G39:Le code exportateur est obligatoire lors exportation">
+					</MSG>
+				</TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		
+	</FONCTION>
+
+	<!-- FIN - Gestion de la recevabilite de la deamande de modification du segment general -->
+
+
+</MODULE>
+</recevabilite>
+
+

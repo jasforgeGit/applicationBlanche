@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>sn.com.douane.gainde.ear</groupId>
+	<artifactId>gainde-integral-ear</artifactId>
+	<packaging>ear</packaging>
+	<version>1.0</version>
+	<name>gainde-integral-ear</name>
+	<parent>
+		<groupId>sn.com.douane</groupId>
+		<artifactId>gainde-demo</artifactId>
+		<version>1.0</version>
+	</parent>
+	<dependencies>
+
+		<dependency>
+			<groupId>sn.com.douane.gainde.ejb</groupId>
+			<artifactId>gainde-integral-rc-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>sn.com.douane.gainde.ejb</groupId>
+			<artifactId>gainde-integral-rc-delegate</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>sn.com.douane.gainde.ejb</groupId>
+			<artifactId>gainde-integral-data-layer</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>sn.com.douane.gainde.ejb</groupId>
+			<artifactId>gainde-integral-rc-ejb</artifactId>
+			<version>1.0</version>
+			<type>ejb</type>
+		</dependency>
+		
+		<dependency>
+			<groupId>sn.com.douane.gainde.web</groupId>
+			<artifactId>gainde-integral-web</artifactId>
+			<version>1.0</version>
+			<type>war</type>
+		</dependency>		
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<type>jar</type>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<generateApplicationXml>true</generateApplicationXml>
+					<earSourceDirectory>src/main/application</earSourceDirectory>
+					<defaultJavaBundleDir>lib/</defaultJavaBundleDir>
+					<displayName>gainde-integral</displayName>
+					<applicationName>gainde-integral</applicationName>
+					<modules>
+						<ejbModule>
+							<groupId>sn.com.douane.gainde.ejb</groupId>
+							<artifactId>gainde-integral-rc-ejb</artifactId>
+							<bundleFileName>gainde-integral-rc-ejb.jar</bundleFileName>
+						</ejbModule>						
+						<webModule>
+							<groupId>sn.com.douane.gainde.web</groupId>
+							<artifactId>gainde-integral-web</artifactId>
+							<bundleFileName>gainde.war</bundleFileName>
+							<contextRoot>/gainde</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>	
+</project>

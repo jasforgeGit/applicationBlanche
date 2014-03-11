@@ -1,0 +1,23 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="sj" uri="/struts-jquery-tags"%>
+
+<table class="SECTION">
+	<tr>
+		<th class="ENTETE" colspan="3"><s:text
+				name="RcRegapuregapureFB.ModificationRegapuregapure" /></th>
+	</tr>
+	<tr>
+		<th><s:text name="RcRegapuregapureFB.TNUM_LIST_RCREGDOUAPURANT_OB" /></th>
+		<td><s:textfield name="numListRcRegDouApurantOB"
+				id="TNUM_LIST_RCREGDOUAPURANT_OB" maxlength="2" readonly="true"
+				cssClass="input200" /></td>
+		<td style="width: 60%"></td>
+	</tr>
+	<tr>
+		<th><s:text name="RcRegapuregapureFB.TNUM_LIST_RCREGDOUAPURE_OB" /></th>
+		<td><s:textfield name="numListRcRegDouApureOB"
+				id="TNUM_LIST_RCREGDOUAPURE_OB" maxlength="2" readonly="true"
+				cssClass="input200" /></td>
+		<td style="width: 60%"></td>
+	</tr>
+</table>

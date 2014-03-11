@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RECEVABILITE SYSTEM "recevabilite.dtd">
+<MODULE ID="declaration"> 
+	 <FONCTION ID="F1" module="declaration" LIBELLE="Creation brouillon declaration" ORDREAFFICHE="1" DESCRIPTION="FONCTION1">
+	<!-- DEBUT - Gestion de la sn.com.douane.ejb.rc.utils.recevabilite du segment general -->
+		<GROUPE ID="G1" fonction="F1" groupe="Controle indicateurs">
+			<CONDITION ID="C1G1" groupe="G1" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAM1='' and PARAM2=F3 or PARAM1=C3"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G1" DESCRIPTION="Soumission credit declarant">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR="Select rcCodeCreditaire from ADMINISTRATEUR.Creditaires where rcCodePpm='PARAMPPM'
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Le declarant doit etre creditaire"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C2G1" groupe="G1" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAM1=C1 or PARAM1=C3"> 
+				 <TRAITEMENT ID="T1C2" condition="C2G1" DESCRIPTION="Soumission transit declarant">
+				   <SQL ID="SQL1" type="" traitement="T1C2" VALEUR="Select rcCodePpm 
+					from ADMINISTRATEUR.PPM where  ((rcCodeContribuable!='') and (rcCodeContribuable is not NULL)) and rcCodePpm='PARAMPPM'
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C2" VALEUR="Le declarant n'a pas soumissionne au transit"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C3G1" groupe="G1" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAM1=C1 and PARAM2=F3"> 
+				 <TRAITEMENT ID="T1C3" condition="C3G1" DESCRIPTION="Soumission admission temporaire declarant">
+				   <SQL ID="SQL1" type="" traitement="T1C3"  VALEUR="Select rcCodePpm 
+					from ADMINISTRATEUR.SoumissionCreditaire where rcCodePpm='PARAMPPM' and 
+					rcCodeSoumission='PARAMSOUMISSIONADMINTEMPORAIRE'
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C3" VALEUR="Le declarant n'a pas soumissionne a l'admission temporaire"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C4G1" groupe="G1" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME=E or PARAMTYPEREGIME=R"> 
+				 <TRAITEMENT ID="T1C4" condition="C4G1" DESCRIPTION="Verification PPM destinataire">
+				   <SQL ID="SQL1" type="" traitement="T1C4" VALEUR="Select rcCodePpm 
+					from ADMINISTRATEUR.Ppm where rcCodePpm='PARAMPPMDEST'
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C4" VALEUR="Le destinataire doit avoir un code PPM valide"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C5G1" groupe="G1" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="TRUE"> 
+				 <TRAITEMENT ID="T1C5" condition="C5G1" DESCRIPTION="Autorisation Indicateur">
+				   <SQL ID="SQL1"  traitement="T1C5" type="fonction" VALEUR="SELECT I.RCLIBELLEINDICATEUR FROM 
+				   ADMINISTRATEUR.INDICATEURREGIME IR,ADMINISTRATEUR.INDICATEUR I,ADMINISTRATEUR.SOUMISSIONCREDITAIRE SC 
+				   WHERE IR.RCTYPEREGIME='PARAMTYPEREGIME' AND IR.RCCODEREGIMEDOUANIER='PARAMCODEREGIMEDOUANE' 
+				   AND IR.RCCODEREGIMEFISCAL='PARAMCODEREGIMEFISCAL' AND IR.RCCODEINDICATEUR NOT IN 
+				   (SELECT sm.RCCODEINDICATEUR FROM ADMINISTRATEUR.SOUMISSIONCREDITAIRE sm
+                   WHERE sm.RCCODECREDITAIRE='PARAMCODECREDITAIRE') AND I.RCCODEINDICATEUR=IR.RCCODEINDICATEUR
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C5" VALEUR="Le declarant n'a pas soumis a "></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			
+		</GROUPE>
+		<GROUPE ID="G2" fonction="F1" groupe="Compatibilite regime/declarant">
+			<CONDITION ID="C1G2" groupe="G2" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="TRUE"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G2" DESCRIPTION="Compatibilite Regime/declarant">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR="Select rcCodeAgree 
+					from ADMINISTRATEUR.RegimeDeclarant where rcTypeRegime='PARAMTYPEREGIME' and 
+					rcRegimeDouanier='PARAMCODEREGIMEDOUANE' and rcCodeAgree='PARAMCODEAGREE'
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Incompatibilite entre le declarant et le regime"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>	
+		<GROUPE ID="G3" fonction="F1" groupe="Controle existence PPM destinataire">
+			<CONDITION ID="C1G3" groupe="G3" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME=E"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G3" DESCRIPTION="Controle existence PPM destinataire">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR="Select rcCodePpm 
+					from ADMINISTRATEUR.PPM where ((rcCodeContribuable!='') and (rcCodeContribuable is not NULL)) and rcCodePpm='PARAMPPM'"></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Les PPM doivent posseder un code contribuable a l'export"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G4" fonction="F1" groupe="Compatibilite regime/bureau">
+			<CONDITION ID="C1G4" groupe="G4" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEAPUREMENT=1"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G4" DESCRIPTION="Compatibilite bureau declaration/bureau manifeste">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR="Select rccodeburdouane from ADMINISTRATEUR.bureaudouane
+					where rccodeburdouane='PARAMBUREAUDEC'
+					and rccodeburdouane not in (select rcCodebureau from RegBurInterdit)
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Le bureau de la declaration est incompatible avec celui du manifeste"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>	
+			<CONDITION ID="C2G4" groupe="G4" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEAPUREMENT=1 and PARAMANENREGMANIF!='' and PARAMBURMANIF!='' and PARAMANNEEREGECO!='' and PARAMPPM!='E' and PARAMTYPEREGIME!='R'"> 
+				 <TRAITEMENT ID="T1C2" condition="C2G4" DESCRIPTION="Controle existence manifeste">
+				   <SQL ID="SQL1" type="" traitement="T1C2" VALEUR="Select * from ADMINISTRATEUR.segmentGenManifeste
+					where MANIFCODECONSIGNATAIRE='PARAMCONSIGNATAIRE' AND MANIFANNEEENREGMANIF='PARAMANENREGMANIF' AND MANIFNUMREP='PARAMREPMANIF'
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C2" VALEUR="Le manifeste est inexistant"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C3G4" groupe="G4" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEAPUREMENT=2"> 		
+				<TRAITEMENT ID="T1C3" condition="C3G4" DESCRIPTION="Compatibilite regime/bureau">
+				   <SQL ID="SQL1" type="" traitement="T1C3" VALEUR="True"
+				   ></SQL>
+					<MSG SQL="SQL1" traitement="T1C3" VALEUR="Pas de depot provisoire"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C4G4" groupe="G4" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEAPUREMENT=2"> 		
+				<TRAITEMENT ID="T1C4" condition="C4G4" DESCRIPTION="Controle depot provisoire">
+				   <SQL ID="SQL1" type="" traitement="T1C4" VALEUR="True"
+				   ></SQL>
+					<MSG SQL="SQL1" traitement="T1C4" VALEUR="Pas de depot provisoire"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C5G4" groupe="G4" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEAPUREMENT=3"> 		
+				<TRAITEMENT ID="T1C3" condition="C5G4" DESCRIPTION="Compatibilite type apurement/regime">
+				   <SQL ID="SQL1" type="" traitement="T1C3" VALEUR="..."></SQL>
+					<MSG SQL="SQL1" traitement="T1C3" VALEUR="Incompatibilite entre type apurement et regime"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C6G4" groupe="G4" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEAPUREMENT=4 and PARAMANENREGMANIF='' and PARAMBURMANIF='' and PARAMENREGMANIF='' and PARAMTYPEREGIME!='E' and PARAMTYPEREGIME!='R'">  		
+				<TRAITEMENT ID="T1C4" condition="C6G4" DESCRIPTION="Controle existence numero manifeste manuel">
+				   <SQL ID="SQL1" type="" traitement="T1C4" VALEUR="True
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C4" VALEUR="Manifeste manuel obligatoire"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C7G4" groupe="G4" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEAPUREMENT=4 and PARAMENREGMANIF &gt;=5000 and PARAMENREGMANIF &lt;=10000 and PARAMTYPEREGIME!='E' and PARAMTYPEREGIME!='R'">
+				<TRAITEMENT ID="T1C4" condition="C7G4" DESCRIPTION="Controle numero manifeste manuel">
+				   <SQL ID="SQL1" type="" traitement="T1C5" VALEUR="..."></SQL>
+					<MSG SQL="SQL1" traitement="T1C5" VALEUR="Un manifeste manuel ne peut avoir un numero compris entre 5000 et 10000"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C8G4" groupe="G4" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEAPUREMENT=4 and PARAMPAYSPROVENANCE=''">
+				<TRAITEMENT ID="T1C6" condition="C8G4" DESCRIPTION="Controle pays de provenance">
+				   <SQL ID="SQL1" type="" traitement="T1C6" VALEUR="True"></SQL>
+					<MSG SQL="SQL1" traitement="T1C6" VALEUR="Le pays de provenance doit etre renseigne"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+			<CONDITION ID="C9G4" groupe="G4" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEAPUREMENT=4 and PARAMANNEEREGECO!='' and PARAMNUMREGECO!=''">
+				<TRAITEMENT ID="T1C6" condition="C9G4" DESCRIPTION="Controle regime economique">
+				   <SQL ID="SQL1" type="" traitement="T1C6" VALEUR="Select * from ADMINISTRATEUR.REGIMEECONOMIQUE where
+				   RCANNEEREGECO='PARAMANNEEREGECO' and RCNUMREGECO='PARAMNUMREGECO' and 
+				   RCNUMREGECO not in (Select rcCodeRegEco from Administrateur.RegEcoProdFiniBur where rcAnneeRegEco='PARAMANNEEREGECO'
+				   AND rcCodeRegEco='PARAMNUMREGECO' and rcCodeBureau='PARAMBUREAUDEC')"
+				   ></SQL>
+					<MSG SQL="SQL1" traitement="T1C6" VALEUR="Ce bureau d'enregistrement ne peut etre choisi pour ce regime economique"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>		
+		
+	</FONCTION>
+	 <FONCTION ID="F2" module="declaration" LIBELLE="Creation brouillon declaration" ORDREAFFICHE="1" DESCRIPTION="FONCTION2">
+	<!--  DEBUT - Gestion de la sn.com.douane.ejb.rc.utils.recevabilite du segment article-->
+		<GROUPE ID="G5" fonction="F2" groupe="Controles existence manifeste">
+			<CONDITION ID="C1G5" groupe="G5" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMANENREGMANIF='' or PARAMBURMANIF='' or PARAMNUMENREGMANIF=''"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G5" DESCRIPTION="Controle manifeste">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Manifeste non renseigne "></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G6" fonction="F2" groupe="Controles regime export, reexport, suspensif">
+			<CONDITION ID="C1G5" groupe="G6" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME!=E or PARAMTYPEREGIME!=R or PARAMTYPEREGIME!=S and PARAMMODEDECLARATION!=S and PARAMPDBRUT=0 or PARAMPDBRUT='' or PARAMPDNET=0 or PARAMPDNET=''"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G6" DESCRIPTION="Controle poids net et poids brut renseignes">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Les poids net et brut doivent etre renseignes"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G7" fonction="F2" groupe="Controles regime export, reexport, suspensif">
+			<CONDITION ID="C1G7" groupe="G7" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME!=E or PARAMTYPEREGIME!=R or PARAMTYPEREGIME!=S and PARAMMODEDECLARATION!=S and PARAMNBRECOLIS='' or PARAMNBRECOLIS=0"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G7" DESCRIPTION="Controle du nombre de colis renseigne">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Le nombre de colis doit etre renseigne"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G8" fonction="F2" groupe="Controles regime export, reexport, suspensif">
+			<CONDITION ID="C1G8" groupe="G8" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME!=E or PARAMTYPEREGIME!=R or PARAMTYPEREGIME!=S and PARAMMODEDECLARATION!=S and PARAMVALEURFOB='' or PARAMVALEURFOB=0"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G8" DESCRIPTION="Controle de la valeur Fob">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="La valeur Fob doit etre renseigne"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G9" fonction="F2" groupe="Controles regime export, reexport, suspensif">
+			<CONDITION ID="C1G8" groupe="G9" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME!=E or PARAMTYPEREGIME!=R or PARAMTYPEREGIME!=S and PARAMMODEDECLARATION!=S and PARAMVALEURFACTURE='' or PARAMVALEURFACTURE=0"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G9" DESCRIPTION="Controle valeur facture">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="La valeur de la facture doit etre renseigne"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G10" fonction="F2" groupe="Controles regime export, reexport, suspensif">
+			<CONDITION ID="C1G10" groupe="G10" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME!=E or PARAMTYPEREGIME!=R or PARAMTYPEREGIME!=S and PARAMMODEDECLARATION!=S and PARAMMODEDECLARATION!=P and PARAMVALEURFACTURE=0 or PARAMVALEURASSUR=0"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G10" DESCRIPTION="Controle valeur fret/assurance">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="La valeur fret ou assurance est incorrecte"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G11" fonction="F2" groupe="Controles regime export, reexport, suspensif">
+			<CONDITION ID="C1G11" groupe="G11" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME!=E or PARAMTYPEREGIME!=R or PARAMTYPEREGIME!=S and PARAMMODEDECLARATION!=S and PARAMMODEDECLARATION!=P and PARAMVALEURFOB=0 or PARAMVALEURDEVISEFOB='' or PARAMVALASSUR!=0 and PARAMDEVISEASSUR!='PARAMDEVISELOCALE'"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G11" DESCRIPTION="Controle valeur fob/assurance">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Valeur fob ou assurance incorrecte"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G12" fonction="F2" groupe="Controles regime export, reexport, suspensif">
+			<CONDITION ID="C1G12" groupe="G12" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME!=E or PARAMTYPEREGIME!=R or PARAMTYPEREGIME!=S and PARAMMODEDECLARATION!=S and PARAMMODEDECLARATION!=P and PARAMDEVISEFACTURE!='' and PARAMVALEURFACTURE=0"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G12" DESCRIPTION="Controle valeur facture">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Valeur facture incorrecte"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G13" fonction="F2" groupe="Controles regime export, reexport, suspensif">
+			<CONDITION ID="C1G13" groupe="G13" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME!=E or PARAMTYPEREGIME!=R or PARAMTYPEREGIME!=S and PARAMMODEDECLARATION!=S and PARAMMODEDECLARATION!=P and PARAMDEVISEFRET!='' and PARAMVALEURFRET=0"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G13" DESCRIPTION="Controle valeur fret">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Valeur fret incorrecte"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G14" fonction="F2" groupe="Controles regime export, reexport, suspensif">
+			<CONDITION ID="C1G14" groupe="G14" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME!=E or PARAMTYPEREGIME!=R or PARAMTYPEREGIME!=S and PARAMMODEDECLARATION!=S and PARAMMODEDECLARATION!=P and PARAMDEVISEAUTRESELEM!='' and PARAMVALEURAUTRESELEM=0"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G14" DESCRIPTION="Controle valeur autres elements">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Valeur autres elements incorrecte"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G15" fonction="F2" groupe="Controles regime export, reexport, suspensif">
+			<CONDITION ID="C1G15" groupe="G15" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME!=E or PARAMTYPEREGIME!=R or PARAMTYPEREGIME!=S and PARAMMODEDECLARATION!=C and PARAMPDNET=0 or PARAMPDBRUT=0"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G15" DESCRIPTION="Controle poids net et poids brut">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Les poids net et brut doivent etre renseignes"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G16" fonction="F2" groupe="Controle devise valeur fob">
+			<CONDITION ID="C1G16" groupe="G16" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMVALEURFOB!=0 and  PARAMDEVISEFOB=''"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G16" DESCRIPTION="Controle devise valeur fob">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="La devise correspondant a la valeur fob doit etre renseignee"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>	
+		<GROUPE ID="G17" fonction="F2" groupe="Controle devise de la facture">
+			<CONDITION ID="C1G17" groupe="G17" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMVALEURFACTURE!=0 and  PARAMDEVISEFACTURE=''"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G17" DESCRIPTION="Controle devise de la facture">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="La devise correspondant a la valeur de la facture doit etre renseignee"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>	
+		<GROUPE ID="G18" fonction="F2" groupe="Controle devise du fret">
+			<CONDITION ID="C1G18" groupe="G18" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME=S and PARAMREGIMEDOUANE=9 and PARAMVALEURFRET!=0 and  PARAMDEVISEFRET=''"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G18" DESCRIPTION="Controle devise du fret">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR="
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="La devise correspondant a la valeur du fret doit etre renseignee"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>	
+		<GROUPE ID="G19" fonction="F2" groupe="Controle devise autres elements">
+			<CONDITION ID="C1G19" groupe="G19" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME=S and PARAMREGIMEDOUANE=9 and PARAMVALEURAUTRESELEM!=0 and  PARAMDEVISEAUTRESELEM=''"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G19" DESCRIPTION="Controle devise autres elements">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="La devise correspondant a la valeur des autres elements doit etre renseignee"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>	
+		<GROUPE ID="G20" fonction="F2" groupe="Controle marque ou designation colis">
+			<CONDITION ID="C1G20" groupe="G20" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMTYPEREGIME=E and  PARAMTYPEAPUREMENT=4 and PARAMMARQUECOLIS='' and PARAMDESTCOLIS=''"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G20" DESCRIPTION="Controle marque ou designation colis">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Marque ou designation colis non renseignee"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G21" fonction="F2" groupe="Controle position tarifaire">
+			<CONDITION ID="C1G21" groupe="G21" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMCODEPRODUIT='' or PARAMPRECUEMOA='' or PARAMPRECSENEGAL=''"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G21" DESCRIPTION="Controle position tarifaire">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR=" 
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="La position tarifaire doit etre renseignee"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G22" fonction="F2" groupe="Controle regime/mode declaration">
+			<CONDITION ID="C1G22" groupe="G22" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMMODEDECLARATION=S and PARAMREGIMEFISCAL=26"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G22" DESCRIPTION="Controle regime/mode declaration">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR="(select count(*) from REGDOUMODEDECL where RCTYPEREGIME='PARAMTYPEREGIME' and RCCODEREGIMEDOUANIER='PARAMREGIMEDOUANE'>0
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Le regime est incorrect pour ce mode de declaration"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>		
+		<GROUPE ID="G23" fonction="F2" groupe="Controle unite et quantite complementaires">
+			<CONDITION ID="C1G23" groupe="G23" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMUNITECOMP!=0 and PARAMQUANTITECOMP=0 or PARAMUNITECOMP=0 and PARAMQUANTITECOMP!=0"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G23" DESCRIPTION="Controle unite et quantite complementaires">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR="
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Unite ou quantite complementaire incorrecte"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>
+		<GROUPE ID="G24" fonction="F2" groupe="Controle unite et quantite mercuriales">
+			<CONDITION ID="C1G24" groupe="G24" DATEVALEUR="01/01/06" DATEFIN="01/01/2007" VALEUR="PARAMUNITEMERC=!=0 and PARAMQUANTITEMERC=0 or PARAMUNITEMERC=0 and PARAMQUANTITEMERC!=0"> 
+				 <TRAITEMENT ID="T1C1" condition="C1G24" DESCRIPTION="Controle unite et quantite mercuriales">
+				   <SQL ID="SQL1" type="" traitement="T1C1" VALEUR="
+				   "></SQL>
+					<MSG SQL="SQL1" traitement="T1C1" VALEUR="Unite ou quantite mercuriale incorrecte"></MSG>
+				 </TRAITEMENT>
+			</CONDITION>
+		</GROUPE>		
+		
+	</FONCTION>
+</MODULE>
+

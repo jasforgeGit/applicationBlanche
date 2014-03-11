@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+   <groupId>sn.com.douane.gainde.ejb</groupId>
+    <artifactId>gainde-integral-ressources</artifactId>
+    <name>gainde-integral-ressources</name>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+    <parent>
+		<groupId>sn.com.douane.gainde.ejb</groupId>
+		<artifactId>gainde-integral-ejb</artifactId>
+		<version>1.0</version>
+    </parent>
+	
+   <modules>
+		<module>gainde-integral-rc-api</module>
+		<module>gainde-integral-rc-delegate</module>
+        <module>gainde-integral-rc-ejb</module>
+  </modules>
+  
+  
+</project>
